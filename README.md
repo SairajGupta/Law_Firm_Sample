@@ -42,8 +42,8 @@ Follow these instructions to get a copy of the project up and running on your lo
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/lawhabibi.git
-   cd lawhabibi
+   git clone https://github.com/SairajGupta/Law_Firm_Sample.git
+   
    ```
 
 2. Install dependencies:
