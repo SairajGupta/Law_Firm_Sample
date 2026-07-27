@@ -8,7 +8,7 @@ export default function Hero() {
   };
 
   return (
-    <section id="home" className="relative h-screen min-h-[700px] flex items-center justify-center overflow-hidden pt-20">
+    <section id="home" className="relative min-h-screen lg:h-screen min-h-[700px] flex items-center justify-center overflow-hidden pt-32 pb-16 lg:pt-20 lg:pb-0">
       {/* Background Image & Overlay */}
       <div className="absolute inset-0 bg-[url('/hero-bg.png')] bg-cover bg-center bg-no-repeat"></div>
       <div className="absolute inset-0 bg-primary-navy/70 mix-blend-multiply"></div>
