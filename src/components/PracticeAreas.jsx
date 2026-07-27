@@ -82,7 +82,7 @@ export default function PracticeAreas() {
           return (
             <motion.div key={index} variants={itemVariants}>
               <Card className="h-full flex flex-col items-start p-6 lg:p-8 hover:border-luxury-gold/50 hover:shadow-xl hover:shadow-luxury-gold/20 transition-all duration-300 group">
-                <div className="w-12 h-12 rounded-full bg-light-gray flex items-center justify-center mb-5 group-hover:bg-primary-navy transition-colors duration-300">
+                <div className="w-12 h-12 rounded-full bg-light-gray flex items-center justify-center mb-5 ring-1 ring-luxury-gold/50 shadow-lg shadow-luxury-gold/20 group-hover:bg-primary-navy group-hover:ring-luxury-gold transition-all duration-300">
                   <Icon className="w-5 h-5 text-primary-navy group-hover:text-luxury-gold transition-colors duration-300" strokeWidth={1.5} />
                 </div>
                 <h4 className="text-xl font-heading text-primary-navy group-hover:text-luxury-gold transition-colors duration-300 mb-3 font-semibold">{practice.title}</h4>
