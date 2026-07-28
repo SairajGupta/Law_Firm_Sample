@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { Section } from './ui/Section';
 import { Card } from './ui/Card';
 import { 
@@ -81,20 +82,22 @@ export default function PracticeAreas() {
           const Icon = practice.icon;
           return (
             <motion.div key={index} variants={itemVariants}>
-              <Card className="h-full flex flex-col items-start p-6 lg:p-8 hover:border-luxury-gold/50 hover:shadow-xl hover:shadow-luxury-gold/20 transition-all duration-300 group">
-                <div className="w-12 h-12 rounded-full bg-light-gray flex items-center justify-center mb-5 ring-1 ring-luxury-gold/50 shadow-lg shadow-luxury-gold/20 group-hover:bg-primary-navy group-hover:ring-luxury-gold transition-all duration-300">
-                  <Icon className="w-5 h-5 text-primary-navy group-hover:text-luxury-gold transition-colors duration-300" strokeWidth={1.5} />
-                </div>
-                <h4 className="text-xl font-heading text-primary-navy group-hover:text-luxury-gold transition-colors duration-300 mb-3 font-semibold">{practice.title}</h4>
-                <p className="text-text-muted group-hover:text-luxury-gold/90 transition-colors duration-300 text-sm leading-relaxed mb-6 flex-grow">{practice.description}</p>
-                
-                <a href={`#${practice.title.toLowerCase().replace(' ', '-')}`} className="text-sm font-medium text-primary-navy hover:text-luxury-gold transition-colors mt-auto inline-flex items-center">
-                  Learn more
-                  <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                  </svg>
-                </a>
-              </Card>
+              <Link to={`/expertise/${practice.title.toLowerCase().replace(' ', '-')}`} className="block h-full outline-none focus:ring-2 focus:ring-luxury-gold rounded-2xl">
+                <Card className="h-full flex flex-col items-start p-6 lg:p-8 hover:border-luxury-gold/50 hover:shadow-xl hover:shadow-luxury-gold/20 transition-all duration-300 group">
+                  <div className="w-12 h-12 rounded-full bg-light-gray flex items-center justify-center mb-5 ring-1 ring-luxury-gold/50 shadow-lg shadow-luxury-gold/20 group-hover:bg-primary-navy group-hover:ring-luxury-gold transition-all duration-300">
+                    <Icon className="w-5 h-5 text-primary-navy group-hover:text-luxury-gold transition-colors duration-300" strokeWidth={1.5} />
+                  </div>
+                  <h4 className="text-xl font-heading text-primary-navy group-hover:text-luxury-gold transition-colors duration-300 mb-3 font-semibold">{practice.title}</h4>
+                  <p className="text-text-muted group-hover:text-luxury-gold/90 transition-colors duration-300 text-sm leading-relaxed mb-6 flex-grow">{practice.description}</p>
+                  
+                  <span className="text-sm font-medium text-primary-navy group-hover:text-luxury-gold transition-colors mt-auto inline-flex items-center">
+                    Learn more
+                    <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
+                  </span>
+                </Card>
+              </Link>
             </motion.div>
           );
         })}

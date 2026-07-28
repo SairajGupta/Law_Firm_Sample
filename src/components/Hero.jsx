@@ -1,7 +1,10 @@
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 import { Button } from './ui/Button';
 
 export default function Hero() {
+  const navigate = useNavigate();
+  
   const fadeUp = {
     hidden: { opacity: 0, y: 30 },
     visible: { opacity: 1, y: 0 }
@@ -41,7 +44,7 @@ export default function Hero() {
             variants={fadeUp}
             className="flex flex-col sm:flex-row gap-4 mb-12 md:mb-16"
           >
-            <Button variant="gold" size="lg" className="w-full sm:w-auto">Book Consultation</Button>
+            <Button variant="gold" size="lg" className="w-full sm:w-auto" onClick={() => navigate('/book-consultation')}>Book Consultation</Button>
             <Button variant="secondary" size="lg" className="w-full sm:w-auto border-white/50 text-white hover:bg-white hover:text-primary-navy bg-transparent backdrop-blur-sm">Explore Practice Areas</Button>
           </motion.div>
           

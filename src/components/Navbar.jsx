@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, useScroll, useMotionValueEvent, AnimatePresence } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 import { Button } from './ui/Button';
 import { Menu, X } from 'lucide-react';
 
@@ -8,6 +9,7 @@ export default function Navbar() {
   const [hidden, setHidden] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     setScrolled(latest > 50);
@@ -51,6 +53,12 @@ export default function Navbar() {
   const handleScroll = (e, href) => {
     e.preventDefault();
     const id = href.substring(1);
+    
+    if (window.location.pathname !== '/') {
+      window.location.href = '/' + href;
+      return;
+    }
+
     setActiveSection(id); // Instantly update UI on click
     const element = document.getElementById(id);
     if (element) {
@@ -106,7 +114,7 @@ export default function Navbar() {
           </div>
 
           <div className="hidden md:block">
-            <Button variant="gold" size="sm">
+            <Button variant="gold" size="sm" onClick={() => navigate('/book-consultation')}>
               Book Consultation
             </Button>
           </div>
@@ -150,7 +158,10 @@ export default function Navbar() {
                 );
               })}
               <div className="pt-2 md:hidden">
-                <Button variant="gold" className="w-full">
+                <Button variant="gold" className="w-full" onClick={() => {
+                  navigate('/book-consultation');
+                  setIsMobileMenuOpen(false);
+                }}>
                   Book Consultation
                 </Button>
               </div>
