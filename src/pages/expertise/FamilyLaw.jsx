@@ -16,12 +16,12 @@ export default function FamilyLaw() {
   };
 
   return (
-    <div className="bg-background min-h-screen pt-20">
+    <div className="bg-background min-h-screen">
       {/* Hero Section */}
-      <section className="relative h-[60vh] min-h-[400px] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-primary-navy/90 z-0"></div>
-        <div className="absolute inset-0 bg-[url('/hero-bg.png')] bg-cover bg-center bg-no-repeat opacity-20 mix-blend-overlay z-0"></div>
-        <div className="absolute inset-0 bg-gradient-to-t from-background to-transparent z-10"></div>
+      <section className="relative h-[60vh] min-h-[450px] flex items-center justify-center overflow-hidden pt-20">
+        <div className="absolute inset-0 bg-[url('/Family.jpg')] bg-cover bg-center bg-no-repeat z-0"></div>
+        <div className="absolute inset-0 bg-primary-navy/35 z-0"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-primary-navy/50 via-transparent to-primary-navy/60 z-10"></div>
         
         <div className="relative z-20 text-center px-6 max-w-4xl mx-auto mt-10">
           <motion.h1 
