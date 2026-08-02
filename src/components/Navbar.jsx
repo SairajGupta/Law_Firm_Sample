@@ -111,7 +111,7 @@ export default function Navbar() {
           
           <div className="hidden lg:flex items-center space-x-8">
             {navLinks.map((link) => {
-              const isActive = activeSection === link.href.substring(1);
+              const isActive = (location.pathname === '/' && activeSection === link.href.substring(1)) || (link.name === 'Insights' && location.pathname.startsWith('/publications'));
               const isPracticeAreas = link.name === 'Practice Areas';
 
               if (isPracticeAreas) {
@@ -238,7 +238,7 @@ export default function Navbar() {
           >
             <div className="px-6 py-4 flex flex-col space-y-4">
               {navLinks.map((link) => {
-                const isActive = activeSection === link.href.substring(1);
+                const isActive = (location.pathname === '/' && activeSection === link.href.substring(1)) || (link.name === 'Insights' && location.pathname.startsWith('/publications'));
                 const isPracticeAreas = link.name === 'Practice Areas';
                 return (
                   <div key={link.name} className="flex flex-col border-b border-border-light/50 last:border-0">

@@ -1,61 +1,150 @@
+import { Link } from 'react-router-dom';
+
+const LinkedinIcon = () => (
+  <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+    <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2v-8.37H6.46M7.83 6.17a1.63 1.63 0 1 0 1.63 1.63c-.01-.9-.74-1.63-1.63-1.63z" />
+  </svg>
+);
+
+const TwitterIcon = () => (
+  <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+  </svg>
+);
+
+const InstagramIcon = () => (
+  <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+  </svg>
+);
+
+const FacebookIcon = () => (
+  <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+  </svg>
+);
+
 export default function Footer() {
+  const handleScroll = (e, href) => {
+    if (href.startsWith('#')) {
+      e.preventDefault();
+      if (window.location.pathname !== '/') {
+        window.location.href = '/' + href;
+      } else {
+        const targetId = href.substring(1);
+        const elem = document.getElementById(targetId);
+        if (elem && window.lenis) {
+          window.lenis.scrollTo(elem, { offset: -80 });
+        } else if (elem) {
+          const y = elem.getBoundingClientRect().top + window.scrollY - 80;
+          window.scrollTo({ top: y, behavior: 'smooth' });
+        }
+      }
+    }
+  };
+
   return (
-    <footer className="bg-dark-navy text-white pt-16 pb-8 border-t border-white/10">
+    <footer className="bg-dark-navy text-white pt-16 pb-10 border-t border-white/10">
       <div className="max-w-[1280px] mx-auto px-6 md:px-10 lg:px-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 mb-14">
           
           {/* Brand */}
-          <div className="col-span-1 md:col-span-2 lg:col-span-1">
+          <div className="lg:col-span-4">
             <div className="flex items-center gap-3 mb-6">
               <img src="/logo.svg" alt="Al Mansoori & Partners Logo" className="w-14 h-14" />
               <h2 className="font-heading text-2xl font-semibold tracking-wide text-white leading-none">
-                AL MANSOORI <br /> <span className="text-luxury-gold text-sm tracking-widest uppercase mt-1 block">& Partners</span>
+                AL MANSOORI <br /> <span className="text-luxury-gold text-xs tracking-widest uppercase mt-1.5 block">& Partners</span>
               </h2>
             </div>
-            <p className="text-light-gray/60 text-sm leading-relaxed mb-6">
-              A premier law firm in Dubai providing world-class legal counsel to sophisticated clients across the globe.
+            <p className="text-light-gray/70 text-sm leading-relaxed mb-6 max-w-sm font-body">
+              A premier law firm in Dubai providing world-class legal representation, strategic advisory, and advocacy to sophisticated international and regional clients.
             </p>
+            <div className="text-xs text-luxury-gold tracking-widest uppercase font-semibold">
+              Excellence • Strategy • Discretion
+            </div>
           </div>
           
-          {/* Quick Links */}
-          <div>
-            <h4 className="text-luxury-gold font-heading text-lg mb-6">Firm</h4>
-            <ul className="space-y-3 text-sm text-light-gray/70">
-              <li><a href="#about" className="hover:text-white transition-colors">About Us</a></li>
-              <li><a href="#experience" className="hover:text-white transition-colors">Our Team</a></li>
-              <li><a href="#results" className="hover:text-white transition-colors">Case Results</a></li>
-              <li><a href="#insights" className="hover:text-white transition-colors">Publications</a></li>
+          {/* Site Sections */}
+          <div className="lg:col-span-3">
+            <h4 className="text-luxury-gold font-heading text-lg mb-5 border-b border-white/10 pb-2">Firm Sections</h4>
+            <ul className="space-y-2.5 text-sm text-light-gray/70 font-body">
+              <li><a href="#about" onClick={(e) => handleScroll(e, '#about')} className="hover:text-luxury-gold transition-colors block py-0.5">About The Firm</a></li>
+              <li><a href="#why-choose-us" onClick={(e) => handleScroll(e, '#why-choose-us')} className="hover:text-luxury-gold transition-colors block py-0.5">Why Choose Us</a></li>
+              <li><a href="#results" onClick={(e) => handleScroll(e, '#results')} className="hover:text-luxury-gold transition-colors block py-0.5">Case Results</a></li>
+              <li><a href="#testimonials" onClick={(e) => handleScroll(e, '#testimonials')} className="hover:text-luxury-gold transition-colors block py-0.5">Client Testimonials</a></li>
+              <li><Link to="/publications" className="hover:text-luxury-gold transition-colors block py-0.5">Legal Publications</Link></li>
+              <li><a href="#faq" onClick={(e) => handleScroll(e, '#faq')} className="hover:text-luxury-gold transition-colors block py-0.5">Frequently Asked Questions</a></li>
+              <li><a href="#contact" onClick={(e) => handleScroll(e, '#contact')} className="hover:text-luxury-gold transition-colors block py-0.5">Contact Support</a></li>
             </ul>
           </div>
           
           {/* Practice Areas */}
-          <div>
-            <h4 className="text-luxury-gold font-heading text-lg mb-6">Practices</h4>
-            <ul className="space-y-3 text-sm text-light-gray/70">
-              <li><a href="#" className="hover:text-white transition-colors">Corporate Law</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Commercial Law</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Real Estate</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Arbitration</a></li>
+          <div className="lg:col-span-3">
+            <h4 className="text-luxury-gold font-heading text-lg mb-5 border-b border-white/10 pb-2">Practice Areas</h4>
+            <ul className="space-y-2.5 text-sm text-light-gray/70 font-body">
+              <li><Link to="/expertise/corporate-law" className="hover:text-luxury-gold transition-colors block py-0.5">Corporate Law & M&A</Link></li>
+              <li><Link to="/expertise/commercial-law" className="hover:text-luxury-gold transition-colors block py-0.5">Commercial Law & IP</Link></li>
+              <li><Link to="/expertise/real-estate" className="hover:text-luxury-gold transition-colors block py-0.5">Real Estate Conveyancing</Link></li>
+              <li><Link to="/expertise/arbitration" className="hover:text-luxury-gold transition-colors block py-0.5">International Arbitration</Link></li>
+              <li><Link to="/expertise/family-law" className="hover:text-luxury-gold transition-colors block py-0.5">Private Client & Family Law</Link></li>
+              <li><Link to="/expertise/criminal-defense" className="hover:text-luxury-gold transition-colors block py-0.5">White-Collar & Criminal Defense</Link></li>
             </ul>
           </div>
           
-          {/* Legal */}
-          <div>
-            <h4 className="text-luxury-gold font-heading text-lg mb-6">Legal</h4>
-            <ul className="space-y-3 text-sm text-light-gray/70">
-              <li><a href="#" className="hover:text-white transition-colors">Privacy Policy</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Terms of Service</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Disclaimer</a></li>
+          {/* Legal & Consultation */}
+          <div className="lg:col-span-2">
+            <h4 className="text-luxury-gold font-heading text-lg mb-5 border-b border-white/10 pb-2">Legal & Advisory</h4>
+            <ul className="space-y-2.5 text-sm text-light-gray/70 font-body">
+              <li><Link to="/book-consultation" className="text-white font-semibold hover:text-luxury-gold transition-colors block py-0.5">Book Consultation</Link></li>
+              <li className="pt-2"><Link to="/privacy-policy" className="hover:text-luxury-gold transition-colors block py-0.5">Privacy Policy</Link></li>
+              <li><Link to="/terms-of-service" className="hover:text-luxury-gold transition-colors block py-0.5">Terms of Service</Link></li>
+              <li><Link to="/legal-disclaimer" className="hover:text-luxury-gold transition-colors block py-0.5">Legal Disclaimer</Link></li>
             </ul>
           </div>
           
         </div>
         
-        <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row items-center justify-between text-xs text-light-gray/50">
+        <div className="border-t border-white/10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-6 text-xs text-light-gray/60 font-body">
           <p>&copy; {new Date().getFullYear()} Al Mansoori & Partners. All rights reserved.</p>
-          <div className="mt-4 md:mt-0 space-x-6">
-            <a href="#" className="hover:text-white transition-colors">LinkedIn</a>
-            <a href="#" className="hover:text-white transition-colors">Twitter</a>
+          
+          {/* Social Icons Toolbar */}
+          <div className="flex items-center space-x-3.5">
+            <a 
+              href="https://linkedin.com" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              aria-label="LinkedIn"
+              className="w-10 h-10 rounded-full bg-white/5 border border-white/10 hover:border-luxury-gold/50 hover:bg-luxury-gold flex items-center justify-center text-white/90 hover:text-white transition-all duration-300 shadow-sm hover:scale-105"
+            >
+              <LinkedinIcon />
+            </a>
+            <a 
+              href="https://twitter.com" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              aria-label="Twitter / X"
+              className="w-10 h-10 rounded-full bg-white/5 border border-white/10 hover:border-luxury-gold/50 hover:bg-luxury-gold flex items-center justify-center text-white/90 hover:text-white transition-all duration-300 shadow-sm hover:scale-105"
+            >
+              <TwitterIcon />
+            </a>
+            <a 
+              href="https://instagram.com" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              aria-label="Instagram"
+              className="w-10 h-10 rounded-full bg-white/5 border border-white/10 hover:border-luxury-gold/50 hover:bg-luxury-gold flex items-center justify-center text-white/90 hover:text-white transition-all duration-300 shadow-sm hover:scale-105"
+            >
+              <InstagramIcon />
+            </a>
+            <a 
+              href="https://facebook.com" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              aria-label="Facebook"
+              className="w-10 h-10 rounded-full bg-white/5 border border-white/10 hover:border-luxury-gold/50 hover:bg-luxury-gold flex items-center justify-center text-white/90 hover:text-white transition-all duration-300 shadow-sm hover:scale-105"
+            >
+              <FacebookIcon />
+            </a>
           </div>
         </div>
       </div>

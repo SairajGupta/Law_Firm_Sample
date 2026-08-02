@@ -23,22 +23,25 @@ export default function BookConsultation() {
   };
 
   return (
-    <div className="bg-background min-h-screen pt-32 pb-24">
-      <div className="max-w-[1280px] mx-auto px-6 md:px-10 lg:px-12">
+    <div className="relative min-h-screen bg-[url('/BookC.jpg')] bg-cover bg-center bg-no-repeat pt-32 pb-24 text-text-main overflow-hidden">
+      {/* Very light fade overlay to preserve vivid background visibility while keeping text clear */}
+      <div className="absolute inset-0 bg-primary-navy/20 pointer-events-none"></div>
+
+      <div className="max-w-[1280px] mx-auto px-6 md:px-10 lg:px-12 relative z-10">
         <motion.div 
           initial="hidden" animate="visible" variants={fadeUp}
-          className="text-center max-w-3xl mx-auto mb-16"
+          className="text-center max-w-3xl mx-auto mb-14"
         >
-          <h2 className="text-base md:text-lg font-semibold tracking-widest text-luxury-gold uppercase mb-3">Confidential Advisory</h2>
-          <h1 className="text-4xl md:text-5xl font-heading text-primary-navy mb-6">
+          <h2 className="text-sm md:text-base font-semibold tracking-widest text-luxury-gold uppercase mb-3 drop-shadow-sm">Confidential Advisory</h2>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading text-white mb-5 drop-shadow-md">
             Book a <span className="italic text-luxury-gold">Consultation</span>
           </h1>
-          <p className="text-text-muted text-lg">
+          <p className="text-white/90 text-base md:text-lg font-light drop-shadow-sm max-w-2xl mx-auto">
             Schedule a private, confidential consultation with our senior partners to discuss your legal requirements.
           </p>
         </motion.div>
 
-        <div className="max-w-4xl mx-auto bg-white rounded-2xl shadow-soft-lg border border-border-light overflow-hidden">
+        <div className="max-w-4xl mx-auto bg-white rounded-2xl shadow-2xl border border-white/20 overflow-hidden">
           <div className="grid grid-cols-1 md:grid-cols-5 h-full">
             
             {/* Left side info */}

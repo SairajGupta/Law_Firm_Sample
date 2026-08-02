@@ -10,6 +10,11 @@ import Arbitration from './pages/expertise/Arbitration';
 import FamilyLaw from './pages/expertise/FamilyLaw';
 import CriminalDefense from './pages/expertise/CriminalDefense';
 import BookConsultation from './pages/BookConsultation';
+import AllPublications from './pages/AllPublications';
+import ArticleDetail from './pages/ArticleDetail';
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import TermsOfService from './pages/TermsOfService';
+import LegalDisclaimer from './pages/LegalDisclaimer';
 import Footer from './components/Footer';
 
 function App() {
@@ -65,6 +70,12 @@ function App() {
         <Route path="/expertise/family-law" element={<FamilyLaw />} />
         <Route path="/expertise/criminal-defense" element={<CriminalDefense />} />
         <Route path="/book-consultation" element={<BookConsultation />} />
+        <Route path="/publications" element={<AllPublications />} />
+        <Route path="/publications/:id" element={<ArticleDetail />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/terms-of-service" element={<TermsOfService />} />
+        <Route path="/legal-disclaimer" element={<LegalDisclaimer />} />
+        <Route path="/disclaimer" element={<LegalDisclaimer />} />
       </Routes>
       <Footer />
     </div>

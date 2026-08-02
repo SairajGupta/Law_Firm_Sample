@@ -14,11 +14,11 @@ export default function About() {
           transition={{ duration: 0.8 }}
           className="w-full lg:w-1/2 relative"
         >
-          <div className="aspect-square lg:aspect-[4/3] bg-light-gray rounded-2xl overflow-hidden relative">
+          <div className="aspect-square lg:aspect-[4/3] rounded-2xl md:rounded-3xl overflow-hidden relative shadow-2xl border border-border-light group">
             <img 
-              src="/placeholder-office.jpg" 
+              src="/About.jpg" 
               alt="Luxury Law Office" 
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
             />
           </div>
           {/* Badge */}
@@ -66,8 +66,8 @@ export default function About() {
               <p className="font-heading text-xl text-primary-navy font-semibold">Tariq Al Mansoori</p>
               <p className="text-sm text-luxury-gold">Managing Partner</p>
             </div>
-            <div className="w-32 opacity-50">
-              <img src="/placeholder-signature.png" alt="Signature" className="w-full h-auto" />
+            <div className="w-36 mix-blend-multiply">
+              <img src="/tsign.jpeg" alt="Tariq Al Mansoori Signature" className="w-full h-auto object-contain mix-blend-multiply" />
             </div>
           </div>
         </motion.div>

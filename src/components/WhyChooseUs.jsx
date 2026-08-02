@@ -61,15 +61,12 @@ export default function WhyChooseUs() {
           transition={{ duration: 0.8 }}
           className="w-full lg:w-5/12"
         >
-          <div className="aspect-[4/3] bg-dark-navy rounded-2xl overflow-hidden border border-white/10 p-2">
-            <div className="w-full h-full rounded-xl overflow-hidden relative">
-              <img 
-                src="/placeholder-meeting.jpg" 
-                alt="Business Meeting" 
-                className="w-full h-full object-cover opacity-80"
-              />
-              <div className="absolute inset-0 bg-primary-navy/20 mix-blend-multiply"></div>
-            </div>
+          <div className="aspect-[4/3] rounded-2xl md:rounded-3xl overflow-hidden relative shadow-2xl border border-white/15 group">
+            <img 
+              src="/whyus.jpg" 
+              alt="Why Choose Us" 
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+            />
           </div>
         </motion.div>
 
