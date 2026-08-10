@@ -1,24 +1,34 @@
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link, useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { Card } from '../components/ui/Card';
 import { Button } from '../components/ui/Button';
 import { ArrowRight, BookOpen, Clock } from 'lucide-react';
-import { publications } from '../data/publications';
+import { usePublications } from '../data/publications';
 
 export default function AllPublications() {
   const navigate = useNavigate();
-  const [selectedCategory, setSelectedCategory] = useState('All');
+  const { t } = useTranslation();
+  const publications = usePublications();
+  const [selectedCategory, setSelectedCategory] = useState('all');
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  const categories = ['All', 'Corporate Law', 'Commercial Law', 'Real Estate', 'Arbitration', 'Criminal Defense'];
+  const categories = [
+    { key: 'all', label: t('pages.allPublications.catAll') },
+    { key: 'corporate', label: t('pages.allPublications.catCorporate') },
+    { key: 'commercial', label: t('pages.allPublications.catCommercial') },
+    { key: 'realEstate', label: t('pages.allPublications.catRealEstate') },
+    { key: 'arbitration', label: t('pages.allPublications.catArbitration') },
+    { key: 'criminal', label: t('pages.allPublications.catCriminal') }
+  ];
 
-  const filteredPublications = selectedCategory === 'All' 
+  const filteredPublications = selectedCategory === 'all' 
     ? publications 
-    : publications.filter(pub => pub.category === selectedCategory);
+    : publications.filter(pub => pub.categoryKey === selectedCategory);
 
   const fadeUp = {
     hidden: { opacity: 0, y: 30 },
@@ -37,13 +47,13 @@ export default function AllPublications() {
           <motion.div initial="hidden" animate="visible" variants={fadeUp}>
             <span className="inline-flex items-center gap-2 bg-luxury-gold/20 backdrop-blur-md px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-widest text-luxury-gold mb-4 border border-luxury-gold/30">
               <BookOpen size={14} className="text-luxury-gold" />
-              Legal Scholarship & Commentary
+              {t('pages.allPublications.badge')}
             </span>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading text-white mb-4 drop-shadow-md">
-              Legal <span className="text-luxury-gold italic">Publications</span> & Insights
+              {t('pages.allPublications.title1')} <span className="text-luxury-gold italic">{t('pages.allPublications.titleGold')}</span> {t('pages.allPublications.title2')}
             </h1>
-            <p className="text-lg md:text-xl text-white/90 font-light max-w-2xl mx-auto drop-shadow-sm">
-              In-depth legal analysis, regulatory commentary, and high-level strategic guidance authored by our senior partners.
+            <p className="text-lg md:text-xl text-white/90 font-light max-w-2xl mx-auto drop-shadow-sm leading-relaxed">
+              {t('pages.allPublications.subtitle')}
             </p>
           </motion.div>
         </div>
@@ -55,15 +65,15 @@ export default function AllPublications() {
         <div className="flex flex-wrap items-center justify-center gap-3 mb-16">
           {categories.map((category) => (
             <button
-              key={category}
-              onClick={() => setSelectedCategory(category)}
+              key={category.key}
+              onClick={() => setSelectedCategory(category.key)}
               className={`px-5 py-2 rounded-full text-sm font-body transition-all ${
-                selectedCategory === category
+                selectedCategory === category.key
                   ? 'bg-primary-navy text-white shadow-md font-medium border border-primary-navy'
                   : 'bg-white text-text-main hover:bg-primary-navy/5 border border-border-light hover:border-luxury-gold/50'
               }`}
             >
-              {category}
+              {category.label}
             </button>
           ))}
         </div>
@@ -72,7 +82,7 @@ export default function AllPublications() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredPublications.map((pub, index) => (
             <motion.div
-              key={pub.id}
+              key={pub.id || index}
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -86,7 +96,7 @@ export default function AllPublications() {
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-80 group-hover:opacity-60 transition-opacity"></div>
-                    <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-sm px-3.5 py-1 rounded-full text-xs font-semibold text-primary-navy shadow-sm border border-border-light">
+                    <div className="absolute top-4 start-4 bg-white/95 backdrop-blur-sm px-3.5 py-1 rounded-full text-xs font-semibold text-primary-navy shadow-sm border border-border-light">
                       {pub.category}
                     </div>
                   </div>
@@ -105,9 +115,9 @@ export default function AllPublications() {
                       {pub.summary}
                     </p>
                     <div className="mt-auto pt-4 border-t border-border-light/50 flex items-center justify-between text-sm font-semibold text-primary-navy group-hover:text-luxury-gold transition-colors">
-                      <span>Read Full Article</span>
+                      <span>{t('pages.allPublications.readFull')}</span>
                       <div className="w-8 h-8 rounded-full bg-primary-navy/5 group-hover:bg-luxury-gold/10 flex items-center justify-center transition-colors">
-                        <ArrowRight className="w-4 h-4 text-primary-navy group-hover:text-luxury-gold transition-transform group-hover:translate-x-0.5" />
+                        <ArrowRight className="w-4 h-4 text-primary-navy group-hover:text-luxury-gold transition-transform group-hover:translate-x-0.5 rtl:group-hover:-translate-x-0.5 rtl:rotate-180" />
                       </div>
                     </div>
                   </div>
@@ -119,23 +129,23 @@ export default function AllPublications() {
 
         {filteredPublications.length === 0 && (
           <div className="text-center py-20 text-text-muted font-body">
-            No publications found in this category.
+            {t('pages.allPublications.noResults')}
           </div>
         )}
 
         {/* Bottom CTA Banner */}
         <div className="mt-20 bg-gradient-to-r from-primary-navy to-primary-navy/95 text-white rounded-2xl p-8 md:p-12 shadow-soft-xl border border-luxury-gold/30 flex flex-col md:flex-row items-center justify-between gap-8 relative overflow-hidden">
-          <div className="absolute right-0 top-0 w-64 h-64 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-luxury-gold/10 via-transparent to-transparent pointer-events-none"></div>
-          <div className="max-w-2xl relative z-10 text-center md:text-left">
-            <span className="text-luxury-gold text-xs font-semibold tracking-widest uppercase block mb-2">Tailored Counsel</span>
-            <h3 className="text-2xl md:text-3xl font-heading mb-3 text-white">Require Deeper Insights for Your Enterprise?</h3>
+          <div className="absolute end-0 top-0 w-64 h-64 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-luxury-gold/10 via-transparent to-transparent pointer-events-none"></div>
+          <div className="max-w-2xl relative z-10 text-center md:text-start">
+            <span className="text-luxury-gold text-xs font-semibold tracking-widest uppercase block mb-2">{t('pages.allPublications.bannerTag')}</span>
+            <h3 className="text-2xl md:text-3xl font-heading mb-3 text-white">{t('pages.allPublications.bannerTitle')}</h3>
             <p className="text-white/80 font-body text-sm md:text-base leading-relaxed">
-              Connect directly with the primary legal authors of our scholarly articles for confidential, strategic consultation on your organization's legal matters.
+              {t('pages.allPublications.bannerDesc')}
             </p>
           </div>
           <div className="relative z-10 w-full md:w-auto flex-shrink-0">
             <Button variant="gold" size="lg" onClick={() => navigate('/book-consultation')} className="w-full md:w-auto shadow-md">
-              Book Confidential Consultation
+              {t('pages.allPublications.bannerBtn')}
             </Button>
           </div>
         </div>

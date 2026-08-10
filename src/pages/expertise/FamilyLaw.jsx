@@ -1,10 +1,12 @@
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { Button } from '../../components/ui/Button';
 
 export default function FamilyLaw() {
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -14,6 +16,14 @@ export default function FamilyLaw() {
     hidden: { opacity: 0, y: 30 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.8 } }
   };
+
+  const services = [
+    t('expertise.familyLaw.service1'),
+    t('expertise.familyLaw.service2'),
+    t('expertise.familyLaw.service3'),
+    t('expertise.familyLaw.service4'),
+    t('expertise.familyLaw.service5')
+  ];
 
   return (
     <div className="bg-background min-h-screen">
@@ -28,13 +38,13 @@ export default function FamilyLaw() {
             initial="hidden" animate="visible" variants={fadeUp}
             className="text-4xl md:text-5xl lg:text-6xl font-heading text-white mb-4"
           >
-            Family & <span className="text-luxury-gold italic">Private Wealth</span>
+            {t('expertise.familyLaw.title')} <span className="text-luxury-gold italic">{t('expertise.familyLaw.titleGold')}</span>
           </motion.h1>
           <motion.p 
             initial="hidden" animate="visible" variants={fadeUp} transition={{ delay: 0.2 }}
-            className="text-lg md:text-xl text-white/80 font-light"
+            className="text-lg md:text-xl text-white/80 font-light leading-relaxed"
           >
-            Discreet and sensitive handling of private family matters, wealth protection, and succession.
+            {t('expertise.familyLaw.subtitle')}
           </motion.p>
         </div>
       </section>
@@ -46,32 +56,30 @@ export default function FamilyLaw() {
             initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}
             className="lg:col-span-8 space-y-8 text-text-main font-body text-lg leading-relaxed"
           >
-            <h2 className="text-3xl font-heading text-primary-navy mb-6">Discretion, Empathy, and Protection</h2>
+            <h2 className="text-3xl font-heading text-primary-navy mb-6">
+              {t('expertise.familyLaw.heading')}
+            </h2>
             <p>
-              Family legal matters demand more than just legal expertise; they require absolute discretion, empathy, and a nuanced understanding of family dynamics. Our Family Law practice is dedicated to protecting the personal and financial interests of our high-net-worth clients during life's most challenging transitions.
+              {t('expertise.familyLaw.p1')}
             </p>
             <p>
-              We handle complex divorces involving substantial assets, multi-jurisdictional elements, and intricate corporate structures. Furthermore, our Private Wealth division assists prominent families in structuring their assets to ensure seamless succession and the preservation of generational wealth.
+              {t('expertise.familyLaw.p2')}
             </p>
             
-            <h3 className="text-2xl font-heading text-primary-navy mt-10 mb-4">Our Core Services</h3>
+            <h3 className="text-2xl font-heading text-primary-navy mt-10 mb-4">
+              {t('expertise.familyLaw.coreServicesTitle')}
+            </h3>
             <ul className="space-y-4 list-none">
-              {[
-                "High-Net-Worth Divorce & Separation",
-                "Child Custody & Guardianship",
-                "Pre-Nuptial & Post-Nuptial Agreements",
-                "Wealth Structuring & Succession Planning",
-                "Wills, Trusts & Estate Administration"
-              ].map((item, idx) => (
+              {services.map((item, idx) => (
                 <li key={idx} className="flex items-start">
-                  <span className="text-luxury-gold mr-3 mt-1">✦</span>
+                  <span className="text-luxury-gold me-3 mt-1">✦</span>
                   <span>{item}</span>
                 </li>
               ))}
             </ul>
             
             <p className="mt-8">
-              Our approach is always discreet and resolution-focused, aiming to protect our clients' privacy and minimize emotional distress while achieving the most favorable legal and financial outcomes.
+              {t('expertise.familyLaw.p3')}
             </p>
           </motion.div>
 
@@ -81,12 +89,14 @@ export default function FamilyLaw() {
             className="lg:col-span-4"
           >
             <div className="bg-white p-8 border border-border-light shadow-soft-lg rounded-xl sticky top-28">
-              <h3 className="text-xl font-heading text-primary-navy mb-4">Confidential Assistance</h3>
-              <p className="text-text-muted mb-6 text-sm">
-                Schedule a private, completely confidential consultation with our senior family law partners.
+              <h3 className="text-xl font-heading text-primary-navy mb-4">
+                {t('expertise.familyLaw.sidebarTitle')}
+              </h3>
+              <p className="text-text-muted mb-6 text-sm leading-relaxed">
+                {t('expertise.familyLaw.sidebarDesc')}
               </p>
               <Button variant="gold" className="w-full" onClick={() => navigate('/book-consultation')}>
-                Book Consultation
+                {t('expertise.familyLaw.sidebarBtn')}
               </Button>
             </div>
           </motion.div>

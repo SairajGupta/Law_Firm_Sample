@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 const LinkedinIcon = () => (
   <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
@@ -25,6 +26,8 @@ const FacebookIcon = () => (
 );
 
 export default function Footer() {
+  const { t, i18n } = useTranslation();
+
   const handleScroll = (e, href) => {
     if (href.startsWith('#')) {
       e.preventDefault();
@@ -43,8 +46,13 @@ export default function Footer() {
     }
   };
 
+  const toggleLang = () => {
+    const nextLng = i18n.language && i18n.language.startsWith('ar') ? 'en' : 'ar';
+    i18n.changeLanguage(nextLng);
+  };
+
   return (
-    <footer className="bg-dark-navy text-white pt-16 pb-10 border-t border-white/10">
+    <footer className="bg-dark-navy text-white pt-16 pb-24 md:pb-10 border-t border-white/10">
       <div className="max-w-[1280px] mx-auto px-6 md:px-10 lg:px-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 mb-14">
           
@@ -57,90 +65,94 @@ export default function Footer() {
               </h2>
             </div>
             <p className="text-light-gray/70 text-sm leading-relaxed mb-6 max-w-sm font-body">
-              A premier law firm in Dubai providing world-class legal representation, strategic advisory, and advocacy to sophisticated international and regional clients.
+              {t('common.footer.description')}
             </p>
             <div className="text-xs text-luxury-gold tracking-widest uppercase font-semibold">
-              Excellence • Strategy • Discretion
+              {t('common.footer.slogan')}
             </div>
           </div>
           
           {/* Site Sections */}
           <div className="lg:col-span-3">
-            <h4 className="text-luxury-gold font-heading text-lg mb-5 border-b border-white/10 pb-2">Firm Sections</h4>
+            <h4 className="text-luxury-gold font-heading text-lg mb-5 border-b border-white/10 pb-2">{t('common.footer.firmSections')}</h4>
             <ul className="space-y-2.5 text-sm text-light-gray/70 font-body">
-              <li><a href="#about" onClick={(e) => handleScroll(e, '#about')} className="hover:text-luxury-gold transition-colors block py-0.5">About The Firm</a></li>
-              <li><a href="#why-choose-us" onClick={(e) => handleScroll(e, '#why-choose-us')} className="hover:text-luxury-gold transition-colors block py-0.5">Why Choose Us</a></li>
-              <li><a href="#results" onClick={(e) => handleScroll(e, '#results')} className="hover:text-luxury-gold transition-colors block py-0.5">Case Results</a></li>
-              <li><a href="#testimonials" onClick={(e) => handleScroll(e, '#testimonials')} className="hover:text-luxury-gold transition-colors block py-0.5">Client Testimonials</a></li>
-              <li><Link to="/publications" className="hover:text-luxury-gold transition-colors block py-0.5">Legal Publications</Link></li>
-              <li><a href="#faq" onClick={(e) => handleScroll(e, '#faq')} className="hover:text-luxury-gold transition-colors block py-0.5">Frequently Asked Questions</a></li>
-              <li><a href="#contact" onClick={(e) => handleScroll(e, '#contact')} className="hover:text-luxury-gold transition-colors block py-0.5">Contact Support</a></li>
+              <li><a href="#about" onClick={(e) => handleScroll(e, '#about')} className="hover:text-luxury-gold transition-colors block py-0.5">{t('common.footer.aboutFirm')}</a></li>
+              <li><a href="#why-choose-us" onClick={(e) => handleScroll(e, '#why-choose-us')} className="hover:text-luxury-gold transition-colors block py-0.5">{t('common.footer.whyChooseUs')}</a></li>
+              <li><a href="#results" onClick={(e) => handleScroll(e, '#results')} className="hover:text-luxury-gold transition-colors block py-0.5">{t('common.footer.caseResults')}</a></li>
+              <li><a href="#testimonials" onClick={(e) => handleScroll(e, '#testimonials')} className="hover:text-luxury-gold transition-colors block py-0.5">{t('common.footer.clientTestimonials')}</a></li>
+              <li><Link to="/publications" className="hover:text-luxury-gold transition-colors block py-0.5">{t('common.footer.legalPublications')}</Link></li>
+              <li><a href="#faq" onClick={(e) => handleScroll(e, '#faq')} className="hover:text-luxury-gold transition-colors block py-0.5">{t('common.footer.faq')}</a></li>
+              <li><a href="#contact" onClick={(e) => handleScroll(e, '#contact')} className="hover:text-luxury-gold transition-colors block py-0.5">{t('common.footer.contactSupport')}</a></li>
             </ul>
           </div>
           
           {/* Practice Areas */}
           <div className="lg:col-span-3">
-            <h4 className="text-luxury-gold font-heading text-lg mb-5 border-b border-white/10 pb-2">Practice Areas</h4>
+            <h4 className="text-luxury-gold font-heading text-lg mb-5 border-b border-white/10 pb-2">{t('common.footer.practiceAreas')}</h4>
             <ul className="space-y-2.5 text-sm text-light-gray/70 font-body">
-              <li><Link to="/expertise/corporate-law" className="hover:text-luxury-gold transition-colors block py-0.5">Corporate Law & M&A</Link></li>
-              <li><Link to="/expertise/commercial-law" className="hover:text-luxury-gold transition-colors block py-0.5">Commercial Law & IP</Link></li>
-              <li><Link to="/expertise/real-estate" className="hover:text-luxury-gold transition-colors block py-0.5">Real Estate Conveyancing</Link></li>
-              <li><Link to="/expertise/arbitration" className="hover:text-luxury-gold transition-colors block py-0.5">International Arbitration</Link></li>
-              <li><Link to="/expertise/family-law" className="hover:text-luxury-gold transition-colors block py-0.5">Private Client & Family Law</Link></li>
-              <li><Link to="/expertise/criminal-defense" className="hover:text-luxury-gold transition-colors block py-0.5">White-Collar & Criminal Defense</Link></li>
+              <li><Link to="/expertise/corporate-law" className="hover:text-luxury-gold transition-colors block py-0.5">{t('common.footer.corporateLawMa')}</Link></li>
+              <li><Link to="/expertise/commercial-law" className="hover:text-luxury-gold transition-colors block py-0.5">{t('common.footer.commercialLawIp')}</Link></li>
+              <li><Link to="/expertise/real-estate" className="hover:text-luxury-gold transition-colors block py-0.5">{t('common.footer.realEstateConveyancing')}</Link></li>
+              <li><Link to="/expertise/arbitration" className="hover:text-luxury-gold transition-colors block py-0.5">{t('common.footer.internationalArbitration')}</Link></li>
+              <li><Link to="/expertise/family-law" className="hover:text-luxury-gold transition-colors block py-0.5">{t('common.footer.privateClientFamily')}</Link></li>
+              <li><Link to="/expertise/criminal-defense" className="hover:text-luxury-gold transition-colors block py-0.5">{t('common.footer.whiteCollarCriminal')}</Link></li>
             </ul>
           </div>
           
           {/* Legal & Consultation */}
           <div className="lg:col-span-2">
-            <h4 className="text-luxury-gold font-heading text-lg mb-5 border-b border-white/10 pb-2">Legal & Advisory</h4>
+            <h4 className="text-luxury-gold font-heading text-lg mb-5 border-b border-white/10 pb-2">{t('common.footer.legalAdvisory')}</h4>
             <ul className="space-y-2.5 text-sm text-light-gray/70 font-body">
-              <li><Link to="/book-consultation" className="text-white font-semibold hover:text-luxury-gold transition-colors block py-0.5">Book Consultation</Link></li>
-              <li className="pt-2"><Link to="/privacy-policy" className="hover:text-luxury-gold transition-colors block py-0.5">Privacy Policy</Link></li>
-              <li><Link to="/terms-of-service" className="hover:text-luxury-gold transition-colors block py-0.5">Terms of Service</Link></li>
-              <li><Link to="/legal-disclaimer" className="hover:text-luxury-gold transition-colors block py-0.5">Legal Disclaimer</Link></li>
+              <li><Link to="/book-consultation" className="text-white font-semibold hover:text-luxury-gold transition-colors block py-0.5">{t('common.footer.bookConsultation')}</Link></li>
+              <li className="pt-2"><Link to="/privacy-policy" className="hover:text-luxury-gold transition-colors block py-0.5">{t('common.footer.privacyPolicy')}</Link></li>
+              <li><Link to="/terms-of-service" className="hover:text-luxury-gold transition-colors block py-0.5">{t('common.footer.termsOfService')}</Link></li>
+              <li><Link to="/legal-disclaimer" className="hover:text-luxury-gold transition-colors block py-0.5">{t('common.footer.legalDisclaimer')}</Link></li>
             </ul>
           </div>
           
         </div>
         
         <div className="border-t border-white/10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-6 text-xs text-light-gray/60 font-body">
-          <p>&copy; {new Date().getFullYear()} Al Mansoori & Partners. All rights reserved.</p>
+          <div className="flex items-center gap-4 flex-wrap justify-center sm:justify-start">
+            <p>{t('common.footer.copyright', { year: new Date().getFullYear() })} <span className="text-luxury-gold/80 ms-1">{t('common.footer.demoProject')}</span></p>
+            <button 
+              onClick={toggleLang}
+              className="px-3 py-1 rounded-full border border-white/20 hover:border-luxury-gold text-white/80 hover:text-luxury-gold transition-all text-[11px] uppercase tracking-wider font-semibold"
+            >
+              {t('common.nav.lang')}
+            </button>
+          </div>
           
           {/* Social Icons Toolbar */}
-          <div className="flex items-center space-x-3.5">
+          <div className="flex items-center gap-3.5">
             <a 
-              href="https://linkedin.com" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              aria-label="LinkedIn"
+              href="#demo-linkedin" 
+              onClick={(e) => { e.preventDefault(); alert(t('common.footer.alertSocial', { channel: 'LinkedIn' })); }}
+              aria-label="LinkedIn (Demo)"
               className="w-10 h-10 rounded-full bg-white/5 border border-white/10 hover:border-luxury-gold/50 hover:bg-luxury-gold flex items-center justify-center text-white/90 hover:text-white transition-all duration-300 shadow-sm hover:scale-105"
             >
               <LinkedinIcon />
             </a>
             <a 
-              href="https://twitter.com" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              aria-label="Twitter / X"
+              href="#demo-twitter" 
+              onClick={(e) => { e.preventDefault(); alert(t('common.footer.alertSocial', { channel: 'Twitter / X' })); }}
+              aria-label="Twitter / X (Demo)"
               className="w-10 h-10 rounded-full bg-white/5 border border-white/10 hover:border-luxury-gold/50 hover:bg-luxury-gold flex items-center justify-center text-white/90 hover:text-white transition-all duration-300 shadow-sm hover:scale-105"
             >
               <TwitterIcon />
             </a>
             <a 
-              href="https://instagram.com" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              aria-label="Instagram"
+              href="#demo-instagram" 
+              onClick={(e) => { e.preventDefault(); alert(t('common.footer.alertSocial', { channel: 'Instagram' })); }}
+              aria-label="Instagram (Demo)"
               className="w-10 h-10 rounded-full bg-white/5 border border-white/10 hover:border-luxury-gold/50 hover:bg-luxury-gold flex items-center justify-center text-white/90 hover:text-white transition-all duration-300 shadow-sm hover:scale-105"
             >
               <InstagramIcon />
             </a>
             <a 
-              href="https://facebook.com" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              aria-label="Facebook"
+              href="#demo-facebook" 
+              onClick={(e) => { e.preventDefault(); alert(t('common.footer.alertSocial', { channel: 'Facebook' })); }}
+              aria-label="Facebook (Demo)"
               className="w-10 h-10 rounded-full bg-white/5 border border-white/10 hover:border-luxury-gold/50 hover:bg-luxury-gold flex items-center justify-center text-white/90 hover:text-white transition-all duration-300 shadow-sm hover:scale-105"
             >
               <FacebookIcon />

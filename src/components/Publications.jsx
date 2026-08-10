@@ -1,25 +1,30 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { Section } from './ui/Section';
 import { Card } from './ui/Card';
 import { ArrowRight } from 'lucide-react';
-import { publications } from '../data/publications';
+import { usePublications } from '../data/publications';
 
 export default function Publications() {
+  const { t } = useTranslation();
+  const publications = usePublications();
   const displayedPublications = publications.slice(0, 3);
 
   return (
     <Section id="insights" className="bg-primary-navy relative overflow-hidden">
       <div className="flex justify-between items-end mb-12 relative z-10">
         <div>
-          <h2 className="text-base md:text-lg font-semibold tracking-widest text-luxury-gold uppercase mb-4">Insights</h2>
+          <h2 className="text-base md:text-lg font-semibold tracking-widest text-luxury-gold uppercase mb-4">
+            {t('home.publications.sectionSubtitle')}
+          </h2>
           <h3 className="text-4xl md:text-5xl font-heading text-white">
-            Legal <span className="italic">Publications</span>
+            {t('home.publications.title1')} <span className="italic">{t('home.publications.titleGold')}</span>
           </h3>
         </div>
         <Link to="/publications" className="hidden md:flex items-center text-sm font-medium text-white/90 hover:text-luxury-gold transition-colors">
-          View All Publications
-          <ArrowRight className="w-4 h-4 ml-2" />
+          <span>{t('home.publications.viewAll')}</span>
+          <ArrowRight className="w-4 h-4 ms-2 rtl:rotate-180" />
         </Link>
       </div>
 
@@ -40,7 +45,7 @@ export default function Publications() {
                     alt={pub.title}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                   />
-                  <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-sm px-3.5 py-1 rounded-full text-xs font-semibold text-primary-navy shadow-sm border border-border-light/50">
+                  <div className="absolute top-4 start-4 bg-white/95 backdrop-blur-sm px-3.5 py-1 rounded-full text-xs font-semibold text-primary-navy shadow-sm border border-border-light/50">
                     {pub.category}
                   </div>
                 </div>
@@ -50,8 +55,8 @@ export default function Publications() {
                     {pub.title}
                   </h4>
                   <span className="mt-auto flex items-center text-sm font-medium text-primary-navy group-hover:text-luxury-gold transition-colors">
-                    Read Article
-                    <ArrowRight className="w-4 h-4 ml-2 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+                    <span>{t('home.publications.readArticle')}</span>
+                    <ArrowRight className="w-4 h-4 ms-2 opacity-0 ltr:-translate-x-2 rtl:translate-x-2 rtl:rotate-180 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
                   </span>
                 </div>
               </Card>
@@ -65,8 +70,8 @@ export default function Publications() {
           to="/publications"
           className="inline-flex items-center justify-center px-6 py-3 bg-white text-primary-navy rounded-full text-sm font-semibold hover:bg-luxury-gold hover:text-white transition-all shadow-md"
         >
-          View All Publications
-          <ArrowRight className="w-4 h-4 ml-2" />
+          <span>{t('home.publications.viewAll')}</span>
+          <ArrowRight className="w-4 h-4 ms-2 rtl:rotate-180" />
         </Link>
       </div>
     </Section>

@@ -1,10 +1,12 @@
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { Button } from '../../components/ui/Button';
 
 export default function CommercialLaw() {
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -14,6 +16,14 @@ export default function CommercialLaw() {
     hidden: { opacity: 0, y: 30 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.8 } }
   };
+
+  const services = [
+    t('expertise.commercialLaw.service1'),
+    t('expertise.commercialLaw.service2'),
+    t('expertise.commercialLaw.service3'),
+    t('expertise.commercialLaw.service4'),
+    t('expertise.commercialLaw.service5')
+  ];
 
   return (
     <div className="bg-background min-h-screen">
@@ -28,13 +38,13 @@ export default function CommercialLaw() {
             initial="hidden" animate="visible" variants={fadeUp}
             className="text-4xl md:text-5xl lg:text-6xl font-heading text-white mb-4"
           >
-            Commercial <span className="text-luxury-gold italic">Law</span>
+            {t('expertise.commercialLaw.title')} <span className="text-luxury-gold italic">{t('expertise.commercialLaw.titleGold')}</span>
           </motion.h1>
           <motion.p 
             initial="hidden" animate="visible" variants={fadeUp} transition={{ delay: 0.2 }}
-            className="text-lg md:text-xl text-white/80 font-light"
+            className="text-lg md:text-xl text-white/80 font-light leading-relaxed"
           >
-            Strategic structuring and negotiation of complex domestic and cross-border commercial transactions.
+            {t('expertise.commercialLaw.subtitle')}
           </motion.p>
         </div>
       </section>
@@ -46,32 +56,30 @@ export default function CommercialLaw() {
             initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}
             className="lg:col-span-8 space-y-8 text-text-main font-body text-lg leading-relaxed"
           >
-            <h2 className="text-3xl font-heading text-primary-navy mb-6">Facilitating Global Trade and Commerce</h2>
+            <h2 className="text-3xl font-heading text-primary-navy mb-6">
+              {t('expertise.commercialLaw.heading')}
+            </h2>
             <p>
-              Dubai's position as a global commercial hub requires legal counsel that is as dynamic and forward-thinking as the market itself. Our Commercial Law practice is dedicated to structuring, negotiating, and executing the transactions that drive our clients' businesses forward.
+              {t('expertise.commercialLaw.p1')}
             </p>
             <p>
-              We advise on a broad spectrum of commercial arrangements, from routine day-to-day trading agreements to complex, multi-jurisdictional strategic partnerships. Our deep understanding of local market practices, coupled with international legal standards, ensures that our clients' commercial interests are robustly protected.
+              {t('expertise.commercialLaw.p2')}
             </p>
             
-            <h3 className="text-2xl font-heading text-primary-navy mt-10 mb-4">Our Core Services</h3>
+            <h3 className="text-2xl font-heading text-primary-navy mt-10 mb-4">
+              {t('expertise.commercialLaw.coreServicesTitle')}
+            </h3>
             <ul className="space-y-4 list-none">
-              {[
-                "Commercial Contracts & Agreements",
-                "Agency, Distributorship & Franchising",
-                "International Trade & Customs",
-                "Intellectual Property Licensing",
-                "Technology & Software Agreements"
-              ].map((item, idx) => (
+              {services.map((item, idx) => (
                 <li key={idx} className="flex items-start">
-                  <span className="text-luxury-gold mr-3 mt-1">✦</span>
+                  <span className="text-luxury-gold me-3 mt-1">✦</span>
                   <span>{item}</span>
                 </li>
               ))}
             </ul>
             
             <p className="mt-8">
-              Whether you are entering the UAE market for the first time or expanding your existing operations, our team provides the incisive legal strategy required to mitigate risk and maximize commercial advantage.
+              {t('expertise.commercialLaw.p3')}
             </p>
           </motion.div>
 
@@ -81,12 +89,14 @@ export default function CommercialLaw() {
             className="lg:col-span-4"
           >
             <div className="bg-white p-8 border border-border-light shadow-soft-lg rounded-xl sticky top-28">
-              <h3 className="text-xl font-heading text-primary-navy mb-4">Need Commercial Legal Assistance?</h3>
-              <p className="text-text-muted mb-6 text-sm">
-                Schedule a confidential consultation with our commercial law specialists to discuss your business requirements.
+              <h3 className="text-xl font-heading text-primary-navy mb-4">
+                {t('expertise.commercialLaw.sidebarTitle')}
+              </h3>
+              <p className="text-text-muted mb-6 text-sm leading-relaxed">
+                {t('expertise.commercialLaw.sidebarDesc')}
               </p>
               <Button variant="gold" className="w-full" onClick={() => navigate('/book-consultation')}>
-                Book Consultation
+                {t('expertise.commercialLaw.sidebarBtn')}
               </Button>
             </div>
           </motion.div>

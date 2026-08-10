@@ -1,21 +1,24 @@
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import { Section } from './ui/Section';
 import { CheckCircle } from 'lucide-react';
 
-const features = [
-  "Absolute Confidentiality",
-  "Strategic Legal Advice",
-  "International Expertise",
-  "Tailored Solutions",
-  "Unwavering Client Focus",
-  "Transparent Communication"
-];
-
 export default function WhyChooseUs() {
+  const { t } = useTranslation();
+
+  const features = [
+    t('home.whyChooseUs.f1'),
+    t('home.whyChooseUs.f2'),
+    t('home.whyChooseUs.f3'),
+    t('home.whyChooseUs.f4'),
+    t('home.whyChooseUs.f5'),
+    t('home.whyChooseUs.f6')
+  ];
+
   return (
     <Section id="why-choose-us" className="bg-primary-navy text-white relative overflow-hidden">
       {/* Decorative background element */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-luxury-gold/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3"></div>
+      <div className="absolute top-0 end-0 w-[500px] h-[500px] bg-luxury-gold/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3 rtl:-translate-x-1/3"></div>
       
       <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 items-center relative z-10">
         
@@ -27,13 +30,15 @@ export default function WhyChooseUs() {
           transition={{ duration: 0.8 }}
           className="w-full lg:w-7/12"
         >
-          <h2 className="text-base md:text-lg font-semibold tracking-widest text-luxury-gold uppercase mb-4">Why Choose Us</h2>
+          <h2 className="text-base md:text-lg font-semibold tracking-widest text-luxury-gold uppercase mb-4">
+            {t('home.whyChooseUs.sectionSubtitle')}
+          </h2>
           <h3 className="text-4xl md:text-5xl font-heading text-white mb-6 leading-tight">
-            The Advantage of <br /> <span className="italic text-luxury-gold">Experience</span>
+            {t('home.whyChooseUs.title1')} <br /> <span className="italic text-luxury-gold">{t('home.whyChooseUs.titleGold')}</span>
           </h3>
           
           <p className="text-light-gray/80 font-body text-lg md:text-xl mb-12 max-w-2xl leading-relaxed">
-            We don't just practice law; we engineer strategic advantages. Our firm is built on a foundation of uncompromising standards and a relentless pursuit of our clients' success.
+            {t('home.whyChooseUs.desc')}
           </p>
           
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-8 gap-x-12">
@@ -44,7 +49,7 @@ export default function WhyChooseUs() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="flex items-center space-x-4"
+                className="flex items-center gap-4"
               >
                 <CheckCircle className="w-6 h-6 text-luxury-gold flex-shrink-0" />
                 <span className="font-medium text-base text-white/90">{feature}</span>

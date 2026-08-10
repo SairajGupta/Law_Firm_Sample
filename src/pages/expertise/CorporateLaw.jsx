@@ -1,10 +1,12 @@
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { Button } from '../../components/ui/Button';
 
 export default function CorporateLaw() {
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -14,6 +16,14 @@ export default function CorporateLaw() {
     hidden: { opacity: 0, y: 30 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.8 } }
   };
+
+  const services = [
+    t('expertise.corporateLaw.service1'),
+    t('expertise.corporateLaw.service2'),
+    t('expertise.corporateLaw.service3'),
+    t('expertise.corporateLaw.service4'),
+    t('expertise.corporateLaw.service5')
+  ];
 
   return (
     <div className="bg-background min-h-screen">
@@ -28,13 +38,13 @@ export default function CorporateLaw() {
             initial="hidden" animate="visible" variants={fadeUp}
             className="text-4xl md:text-5xl lg:text-6xl font-heading text-white mb-4"
           >
-            Corporate <span className="text-luxury-gold italic">Law</span>
+            {t('expertise.corporateLaw.title')} <span className="text-luxury-gold italic">{t('expertise.corporateLaw.titleGold')}</span>
           </motion.h1>
           <motion.p 
             initial="hidden" animate="visible" variants={fadeUp} transition={{ delay: 0.2 }}
-            className="text-lg md:text-xl text-white/80 font-light"
+            className="text-lg md:text-xl text-white/80 font-light leading-relaxed"
           >
-            Comprehensive counsel for multinational corporations on governance, M&A, and compliance.
+            {t('expertise.corporateLaw.subtitle')}
           </motion.p>
         </div>
       </section>
@@ -46,32 +56,30 @@ export default function CorporateLaw() {
             initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}
             className="lg:col-span-8 space-y-8 text-text-main font-body text-lg leading-relaxed"
           >
-            <h2 className="text-3xl font-heading text-primary-navy mb-6">Strategic Corporate Guidance in Dubai</h2>
+            <h2 className="text-3xl font-heading text-primary-navy mb-6">
+              {t('expertise.corporateLaw.heading')}
+            </h2>
             <p>
-              At Al Mansoori & Partners, our Corporate Law practice is the cornerstone of our firm. We understand that in today's rapidly evolving global market, businesses require more than just legal advice; they need strategic partners who understand their commercial objectives.
+              {t('expertise.corporateLaw.p1')}
             </p>
             <p>
-              Our distinguished team of corporate attorneys brings decades of collective experience in navigating the complex regulatory landscape of the UAE and the broader Middle East. We provide bespoke solutions tailored to the unique challenges faced by multinational corporations, family conglomerates, and emerging enterprises.
+              {t('expertise.corporateLaw.p2')}
             </p>
             
-            <h3 className="text-2xl font-heading text-primary-navy mt-10 mb-4">Our Core Services</h3>
+            <h3 className="text-2xl font-heading text-primary-navy mt-10 mb-4">
+              {t('expertise.corporateLaw.coreServicesTitle')}
+            </h3>
             <ul className="space-y-4 list-none">
-              {[
-                "Mergers & Acquisitions (M&A)",
-                "Corporate Restructuring & Reorganization",
-                "Joint Ventures & Strategic Alliances",
-                "Corporate Governance & Compliance",
-                "Private Equity & Venture Capital Transactions"
-              ].map((item, idx) => (
+              {services.map((item, idx) => (
                 <li key={idx} className="flex items-start">
-                  <span className="text-luxury-gold mr-3 mt-1">✦</span>
+                  <span className="text-luxury-gold me-3 mt-1">✦</span>
                   <span>{item}</span>
                 </li>
               ))}
             </ul>
             
             <p className="mt-8">
-              We approach every transaction with rigorous attention to detail and a commitment to protecting our clients' interests while facilitating their strategic growth initiatives.
+              {t('expertise.corporateLaw.p3')}
             </p>
           </motion.div>
 
@@ -81,12 +89,14 @@ export default function CorporateLaw() {
             className="lg:col-span-4"
           >
             <div className="bg-white p-8 border border-border-light shadow-soft-lg rounded-xl sticky top-28">
-              <h3 className="text-xl font-heading text-primary-navy mb-4">Need Corporate Legal Assistance?</h3>
-              <p className="text-text-muted mb-6 text-sm">
-                Schedule a confidential consultation with our corporate law specialists to discuss your business requirements.
+              <h3 className="text-xl font-heading text-primary-navy mb-4">
+                {t('expertise.corporateLaw.sidebarTitle')}
+              </h3>
+              <p className="text-text-muted mb-6 text-sm leading-relaxed">
+                {t('expertise.corporateLaw.sidebarDesc')}
               </p>
               <Button variant="gold" className="w-full" onClick={() => navigate('/book-consultation')}>
-                Book Consultation
+                {t('expertise.corporateLaw.sidebarBtn')}
               </Button>
             </div>
           </motion.div>

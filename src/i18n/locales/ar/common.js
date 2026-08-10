@@ -1,0 +1,68 @@
+export default {
+  nav: {
+    home: "الرئيسية",
+    about: "عن المكتب",
+    practiceAreas: "مجالات الممارسة",
+    experience: "خبراتنا",
+    testimonials: "آراء العملاء",
+    insights: "رؤى وأبحاث",
+    contact: "اتصل بنا",
+    ourExpertise: "تخصصاتنا القانونية",
+    bookConsultation: "حجز استشارة قانونية",
+    corporateLaw: "قانون الشركات",
+    commercialLaw: "القانون التجاري",
+    realEstate: "العقارات والممتلكات",
+    arbitration: "التحكيم وفض المنازعات",
+    familyLaw: "قانون الأسرة",
+    criminalDefense: "الدفاع الجنائي",
+    lang: "English",
+    langCode: "en"
+  },
+  footer: {
+    description: "مكتب محاماة رائد في دبي يقدم أرفع مستويات التمثيل القانوني، والاستشارات الاستراتيجية، والدعوة القضائية لنخبة من العملاء الدوليين والإقليميين.",
+    slogan: "التميز • الاستراتيجية • السرية",
+    firmSections: "أقسام المكتب",
+    aboutFirm: "عن المكتب",
+    whyChooseUs: "لماذا تختارنا",
+    caseResults: "سجل الإنجازات والقضايا",
+    clientTestimonials: "شهادات العملاء",
+    legalPublications: "المنشورات القانونية",
+    faq: "الأسئلة الشائعة",
+    contactSupport: "الدعم والتواصل",
+    practiceAreas: "مجالات الممارسة",
+    corporateLawMa: "قانون الشركات والاندماج والاستحواذ",
+    commercialLawIp: "القانون التجاري والملكية الفكرية",
+    realEstateConveyancing: "المعاملات العقارية والممتلكات",
+    internationalArbitration: "التحكيم الدولي وفض المنازعات",
+    privateClientFamily: "العملاء الخواص وقانون الأسرة",
+    whiteCollarCriminal: "القضايا المالية والدفاع الجنائي",
+    legalAdvisory: "الشؤون القانونية والاستشارية",
+    bookConsultation: "حجز استشارة قانونية",
+    privacyPolicy: "سياسة الخصوصية",
+    termsOfService: "شروط الخدمة",
+    legalDisclaimer: "إخلاء المسؤولية القانونية",
+    copyright: "© {{year}} المنصوري ومشاركوه للمحاماة والاستشارات القانونية. جميع الحقوق محفوظة.",
+    demoProject: "(مشروع تجريبي)",
+    alertSocial: "[مشروع تجريبي] قناة {{channel}} محاكاة لغرض العرض التجريبي."
+  },
+  floatingWhatsApp: {
+    label: "تواصل عبر واتساب",
+    ariaLabel: "تواصل عبر واتساب",
+    defaultMessage: "مرحباً المنصوري ومشاركوه للمحاماة، أود الاستفسار عن خدماتكم القانونية."
+  },
+  mobileBar: {
+    bookConsultation: "حجز استشارة قانونية"
+  },
+  general: {
+    learnMore: "اقرأ المزيد",
+    viewAllPublications: "عرض كافة المنشورات",
+    readArticle: "قراءة المقال",
+    submitInquiry: "إرسال الاستفسار",
+    demoNote: "ملاحظة تجريبية:",
+    demoMsg: "هذا عرض تجريبي لواجهة المستخدم. لم يتم إرسال أي بريد إلكتروني أو طلب فعلي للخوادم.",
+    sendAnother: "إرسال رسالة أخرى",
+    messageSentSuccess: "تم إرسال رسالتكم بنجاح!",
+    thankYouMsg: "شكرًا لتواصلكم مع المنصوري ومشاركوه. سيقوم أحد مستشارينا القانونيين الأقدمين بمراجعة استفساركم والتواصل معكم في أقرب وقت.",
+    demoLabel: "(تجريبي)"
+  }
+};

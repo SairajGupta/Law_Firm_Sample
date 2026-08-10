@@ -29,8 +29,8 @@ export default {
         }
       },
       fontFamily: {
-        heading: ['"Playfair Display"', 'serif'],
-        body: ['Inter', 'sans-serif'],
+        heading: ['"Playfair Display"', '"Amiri"', 'serif'],
+        body: ['Inter', '"Cairo"', 'sans-serif'],
       },
       borderRadius: {
         'xl': '16px',

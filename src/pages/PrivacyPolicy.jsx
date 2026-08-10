@@ -1,9 +1,12 @@
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { Shield, Lock, Eye, FileText, ChevronRight } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
+import { Shield, Lock, Eye, ChevronRight } from 'lucide-react';
 
 export default function PrivacyPolicy() {
+  const { t } = useTranslation();
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -21,22 +24,22 @@ export default function PrivacyPolicy() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black/60 z-0"></div>
 
         <div className="max-w-[1280px] w-full mx-auto px-6 md:px-10 lg:px-12 relative z-10">
-          <nav className="flex items-center space-x-2 text-xs md:text-sm text-white/70 font-body mb-6">
-            <Link to="/" className="hover:text-luxury-gold transition-colors">Home</Link>
-            <ChevronRight size={14} className="text-luxury-gold flex-shrink-0" />
-            <span className="text-luxury-gold font-medium">Privacy Policy</span>
+          <nav className="flex items-center gap-2 text-xs md:text-sm text-white/70 font-body mb-6">
+            <Link to="/" className="hover:text-luxury-gold transition-colors">{t('pages.privacy.homeLink')}</Link>
+            <ChevronRight size={14} className="text-luxury-gold flex-shrink-0 rtl:rotate-180" />
+            <span className="text-luxury-gold font-medium">{t('pages.privacy.badge').replace(' & Data Protection', '')}</span>
           </nav>
 
           <motion.div initial="hidden" animate="visible" variants={fadeUp} className="max-w-3xl">
             <span className="inline-flex items-center gap-2 bg-luxury-gold/20 text-luxury-gold px-3.5 py-1 rounded-full text-xs font-semibold uppercase tracking-widest border border-luxury-gold/30 mb-4">
               <Shield size={14} className="text-luxury-gold" />
-              Data Protection & Confidentiality
+              {t('pages.privacy.badge')}
             </span>
             <h1 className="text-3xl md:text-5xl lg:text-6xl font-heading text-white leading-tight mb-4 drop-shadow-sm">
-              Privacy & <span className="text-luxury-gold italic">Data Policy</span>
+              {t('pages.privacy.title1')} <span className="text-luxury-gold italic">{t('pages.privacy.titleGold')}</span>
             </h1>
-            <p className="text-white/80 font-body text-base md:text-lg max-w-2xl">
-              Al Mansoori & Partners applies uncompromising security standards to safeguard client confidentiality and adhere strictly to applicable data protection regimes.
+            <p className="text-white/80 font-body text-base md:text-lg max-w-2xl leading-relaxed">
+              {t('pages.privacy.subtitle')}
             </p>
           </motion.div>
         </div>
@@ -48,73 +51,73 @@ export default function PrivacyPolicy() {
           
           {/* Effective Date Note */}
           <div className="pb-6 border-b border-border-light flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs text-text-muted">
-            <span><strong>Effective Date:</strong> January 1, 2026</span>
-            <span><strong>Jurisdiction:</strong> Dubai, United Arab Emirates (DIFC / ADGM / Mainland)</span>
+            <span>{t('pages.privacy.effectiveDate')}</span>
+            <span>{t('pages.privacy.jurisdiction')}</span>
           </div>
 
           <div className="space-y-4">
             <h2 className="text-2xl md:text-3xl font-heading font-semibold text-primary-navy flex items-center gap-3">
               <Lock className="text-luxury-gold w-6 h-6 flex-shrink-0" />
-              1. Our Commitment to Client Confidentiality
+              {t('pages.privacy.s1Title')}
             </h2>
             <p className="leading-relaxed text-base md:text-lg">
-              At Al Mansoori & Partners, strict preservation of confidentiality is the foundational cornerstone of our legal representation. We observe all mandatory obligations under the UAE Legal Profession Charter, Federal Decree-Law No. 45 of 2021 regarding the Protection of Personal Data (PDPL), and the DIFC/ADGM Data Protection Regulations. Any operational, personal, or corporate intelligence intrusted to our firm is treated as legally privileged and tightly classified.
+              {t('pages.privacy.s1Desc')}
             </p>
           </div>
 
           <div className="space-y-4">
             <h2 className="text-2xl md:text-3xl font-heading font-semibold text-primary-navy flex items-center gap-3">
               <Eye className="text-luxury-gold w-6 h-6 flex-shrink-0" />
-              2. Information We Collect
+              {t('pages.privacy.s2Title')}
             </h2>
             <p className="leading-relaxed">
-              In the course of delivering strategic representation and managing website inquiries, we may harvest and process the following categories of information:
+              {t('pages.privacy.s2Desc')}
             </p>
-            <ul className="list-disc pl-6 space-y-2 text-text-main/90 leading-relaxed">
-              <li><strong>Corporate & Personal Identifiers:</strong> Names, passport details, enterprise registry documentation, professional titles, and primary communication coordinates provided during onboarding or initial advisory inquiries.</li>
-              <li><strong>Due Diligence & Compliance Documentation:</strong> Statutory Know-Your-Customer (KYC) records, Anti-Money Laundering (AML) identification files, and corporate structural disclosures mandated by UAE regulatory agencies.</li>
-              <li><strong>Digital Telemetry:</strong> Anonymized analytical metadata collected when accessing our online scholarly portals, including browser architecture, regional IP provenance, and interaction timestamps.</li>
+            <ul className="list-disc ps-6 space-y-2 text-text-main/90 leading-relaxed">
+              <li>{t('pages.privacy.s2Li1')}</li>
+              <li>{t('pages.privacy.s2Li2')}</li>
+              <li>{t('pages.privacy.s2Li3')}</li>
             </ul>
           </div>
 
           <div className="space-y-4">
             <h2 className="text-2xl md:text-3xl font-heading font-semibold text-primary-navy">
-              3. Processing and Utilization of Data
+              {t('pages.privacy.s3Title')}
             </h2>
             <p className="leading-relaxed">
-              Personal and enterprise data collected by Al Mansoori & Partners is utilized exclusively for professional legal representation, statutory conflict-of-interest assessments, transaction underwriting, and judicial advocacy. Under no circumstances does our practice commercialize, lease, or syndicate client data archives to third-party direct marketers or non-affiliated commercial networks.
+              {t('pages.privacy.s3Desc')}
             </p>
           </div>
 
           <div className="space-y-4">
             <h2 className="text-2xl md:text-3xl font-heading font-semibold text-primary-navy">
-              4. Data Preservation & Security Architecture
+              {t('pages.privacy.s4Title')}
             </h2>
             <p className="leading-relaxed">
-              Our IT servers and physical document repositories operate under institutional-grade encryption and strict dual-authentication administrative access. Client files are retained for the legally prescribed statutory duration (typically a minimum of ten years following matter completion), after which physical files are incinerated and digital records are cryptographically wiped under formal protocol.
+              {t('pages.privacy.s4Desc')}
             </p>
           </div>
 
           <div className="space-y-4">
             <h2 className="text-2xl md:text-3xl font-heading font-semibold text-primary-navy">
-              5. Your Statutory Rights & Access Requests
+              {t('pages.privacy.s5Title')}
             </h2>
             <p className="leading-relaxed">
-              Under applicable UAE and offshore zone regulations, entitled individuals maintain the legal right to request inspection, rectification, or restrictive processing of their personal files held by our firm, subject always to prevailing attorney-client professional legal privilege statutes.
+              {t('pages.privacy.s5Desc')}
             </p>
           </div>
 
           <div className="pt-8 border-t border-border-light bg-light-gray p-6 md:p-8 rounded-xl">
             <h3 className="text-xl font-heading font-semibold text-primary-navy mb-2">
-              Data Protection Officer & Compliance Contact
+              {t('pages.privacy.dpoTitle')}
             </h3>
-            <p className="text-sm md:text-base text-text-main mb-4">
-              For administrative inquiries concerning this policy or to submit a verified data processing query, direct communication to our firm's compliance committee:
+            <p className="text-sm md:text-base text-text-main mb-4 leading-relaxed">
+              {t('pages.privacy.dpoDesc')}
             </p>
             <div className="text-sm font-semibold text-primary-navy space-y-1">
-              <p>Al Mansoori & Partners — Office of the Data Protection Officer</p>
-              <p className="text-luxury-gold">Email: compliance@almansoorilaw.ae</p>
-              <p>Address: DIFC Gate Tower 4, Level 38, Dubai, United Arab Emirates</p>
+              <p>{t('pages.privacy.dpoFirm')}</p>
+              <p className="text-luxury-gold">{t('pages.privacy.dpoEmail')}</p>
+              <p>{t('pages.privacy.dpoAddress')}</p>
             </div>
           </div>
 

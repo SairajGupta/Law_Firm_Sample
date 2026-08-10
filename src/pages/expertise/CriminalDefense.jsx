@@ -1,10 +1,12 @@
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { Button } from '../../components/ui/Button';
 
 export default function CriminalDefense() {
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -14,6 +16,14 @@ export default function CriminalDefense() {
     hidden: { opacity: 0, y: 30 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.8 } }
   };
+
+  const services = [
+    t('expertise.criminalDefense.service1'),
+    t('expertise.criminalDefense.service2'),
+    t('expertise.criminalDefense.service3'),
+    t('expertise.criminalDefense.service4'),
+    t('expertise.criminalDefense.service5')
+  ];
 
   return (
     <div className="bg-background min-h-screen">
@@ -28,13 +38,13 @@ export default function CriminalDefense() {
             initial="hidden" animate="visible" variants={fadeUp}
             className="text-4xl md:text-5xl lg:text-6xl font-heading text-white mb-4"
           >
-            Criminal <span className="text-luxury-gold italic">Defense</span>
+            {t('expertise.criminalDefense.title')} <span className="text-luxury-gold italic">{t('expertise.criminalDefense.titleGold')}</span>
           </motion.h1>
           <motion.p 
             initial="hidden" animate="visible" variants={fadeUp} transition={{ delay: 0.2 }}
-            className="text-lg md:text-xl text-white/80 font-light"
+            className="text-lg md:text-xl text-white/80 font-light leading-relaxed"
           >
-            Vigorous defense in high-stakes white-collar and corporate criminal proceedings.
+            {t('expertise.criminalDefense.subtitle')}
           </motion.p>
         </div>
       </section>
@@ -46,32 +56,30 @@ export default function CriminalDefense() {
             initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}
             className="lg:col-span-8 space-y-8 text-text-main font-body text-lg leading-relaxed"
           >
-            <h2 className="text-3xl font-heading text-primary-navy mb-6">Uncompromising Defense in Critical Matters</h2>
+            <h2 className="text-3xl font-heading text-primary-navy mb-6">
+              {t('expertise.criminalDefense.heading')}
+            </h2>
             <p>
-              Facing criminal allegations, particularly in the corporate sphere, can be the most critical challenge a business or executive will ever confront. Our Criminal Defense practice specializes in representing high-profile individuals and corporations facing serious regulatory investigations and criminal charges.
+              {t('expertise.criminalDefense.p1')}
             </p>
             <p>
-              We provide aggressive, strategic defense representation while meticulously managing the parallel risks of reputational damage and civil liability. Our advocates have unparalleled experience before the UAE criminal courts and a deep understanding of local investigative procedures.
+              {t('expertise.criminalDefense.p2')}
             </p>
             
-            <h3 className="text-2xl font-heading text-primary-navy mt-10 mb-4">Our Core Services</h3>
+            <h3 className="text-2xl font-heading text-primary-navy mt-10 mb-4">
+              {t('expertise.criminalDefense.coreServicesTitle')}
+            </h3>
             <ul className="space-y-4 list-none">
-              {[
-                "White-Collar Crime & Corporate Fraud",
-                "Embezzlement & Breach of Trust",
-                "Anti-Money Laundering (AML) Compliance & Defense",
-                "Extradition & Interpol Red Notices",
-                "Cybercrime & Data Breaches"
-              ].map((item, idx) => (
+              {services.map((item, idx) => (
                 <li key={idx} className="flex items-start">
-                  <span className="text-luxury-gold mr-3 mt-1">✦</span>
+                  <span className="text-luxury-gold me-3 mt-1">✦</span>
                   <span>{item}</span>
                 </li>
               ))}
             </ul>
             
             <p className="mt-8">
-              We intervene at the earliest possible stage of an investigation, often resolving matters discreetly before formal charges are ever filed. When litigation is unavoidable, we mount a vigorous, uncompromising defense at trial.
+              {t('expertise.criminalDefense.p3')}
             </p>
           </motion.div>
 
@@ -81,12 +89,14 @@ export default function CriminalDefense() {
             className="lg:col-span-4"
           >
             <div className="bg-white p-8 border border-border-light shadow-soft-lg rounded-xl sticky top-28">
-              <h3 className="text-xl font-heading text-primary-navy mb-4">Immediate Legal Assistance</h3>
-              <p className="text-text-muted mb-6 text-sm">
-                If you are facing investigation or charges, contact our defense team immediately for urgent counsel.
+              <h3 className="text-xl font-heading text-primary-navy mb-4">
+                {t('expertise.criminalDefense.sidebarTitle')}
+              </h3>
+              <p className="text-text-muted mb-6 text-sm leading-relaxed">
+                {t('expertise.criminalDefense.sidebarDesc')}
               </p>
               <Button variant="gold" className="w-full" onClick={() => navigate('/book-consultation')}>
-                Book Consultation
+                {t('expertise.criminalDefense.sidebarBtn')}
               </Button>
             </div>
           </motion.div>

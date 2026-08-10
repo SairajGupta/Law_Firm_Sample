@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import Lenis from 'lenis';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
@@ -16,9 +17,18 @@ import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsOfService from './pages/TermsOfService';
 import LegalDisclaimer from './pages/LegalDisclaimer';
 import Footer from './components/Footer';
+import FloatingWhatsApp from './components/FloatingWhatsApp';
+import MobileConsultationBar from './components/MobileConsultationBar';
 
 function App() {
   const location = useLocation();
+  const { i18n } = useTranslation();
+
+  useEffect(() => {
+    const isAr = i18n.language && i18n.language.startsWith('ar');
+    document.documentElement.dir = isAr ? 'rtl' : 'ltr';
+    document.documentElement.lang = isAr ? 'ar' : 'en';
+  }, [i18n.language]);
 
   useEffect(() => {
     // Scroll to top on route change unless there is a hash
@@ -77,6 +87,8 @@ function App() {
         <Route path="/legal-disclaimer" element={<LegalDisclaimer />} />
         <Route path="/disclaimer" element={<LegalDisclaimer />} />
       </Routes>
+      <FloatingWhatsApp />
+      <MobileConsultationBar />
       <Footer />
     </div>
   );

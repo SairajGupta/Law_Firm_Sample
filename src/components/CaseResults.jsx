@@ -1,5 +1,6 @@
 import { useEffect, useState, useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import { Section } from './ui/Section';
 
 const Counter = ({ value, label, duration = 2, suffix = "" }) => {
@@ -10,7 +11,7 @@ const Counter = ({ value, label, duration = 2, suffix = "" }) => {
   useEffect(() => {
     if (isInView) {
       let start = 0;
-      const increment = value / (duration * 60); // Assuming 60fps
+      const increment = value / (duration * 60);
       
       const timer = setInterval(() => {
         start += increment;
@@ -39,13 +40,15 @@ const Counter = ({ value, label, duration = 2, suffix = "" }) => {
 };
 
 export default function CaseResults() {
+  const { t } = useTranslation();
+
   return (
     <Section id="results" className="bg-background border-y border-border-light">
       <div className="grid grid-cols-2 md:grid-cols-4 gap-12 md:gap-8">
-        <Counter value={1000} suffix="+" label="Clients" />
-        <Counter value={25} suffix="+" label="Years" />
-        <Counter value={98} suffix="%" label="Success" />
-        <Counter value={50} suffix="+" label="Corporate Clients" />
+        <Counter value={1000} suffix="+" label={t('home.caseResults.clients')} />
+        <Counter value={25} suffix="+" label={t('home.caseResults.years')} />
+        <Counter value={98} suffix="%" label={t('home.caseResults.success')} />
+        <Counter value={50} suffix="+" label={t('home.caseResults.corporate')} />
       </div>
     </Section>
   );

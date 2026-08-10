@@ -1,10 +1,12 @@
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { Button } from '../../components/ui/Button';
 
 export default function RealEstate() {
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -14,6 +16,14 @@ export default function RealEstate() {
     hidden: { opacity: 0, y: 30 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.8 } }
   };
+
+  const services = [
+    t('expertise.realEstate.service1'),
+    t('expertise.realEstate.service2'),
+    t('expertise.realEstate.service3'),
+    t('expertise.realEstate.service4'),
+    t('expertise.realEstate.service5')
+  ];
 
   return (
     <div className="bg-background min-h-screen">
@@ -28,13 +38,13 @@ export default function RealEstate() {
             initial="hidden" animate="visible" variants={fadeUp}
             className="text-4xl md:text-5xl lg:text-6xl font-heading text-white mb-4"
           >
-            Real <span className="text-luxury-gold italic">Estate</span>
+            {t('expertise.realEstate.title')} <span className="text-luxury-gold italic">{t('expertise.realEstate.titleGold')}</span>
           </motion.h1>
           <motion.p 
             initial="hidden" animate="visible" variants={fadeUp} transition={{ delay: 0.2 }}
-            className="text-lg md:text-xl text-white/80 font-light"
+            className="text-lg md:text-xl text-white/80 font-light leading-relaxed"
           >
-            Expert guidance on high-value property acquisitions, development, and financing in the UAE.
+            {t('expertise.realEstate.subtitle')}
           </motion.p>
         </div>
       </section>
@@ -46,32 +56,30 @@ export default function RealEstate() {
             initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}
             className="lg:col-span-8 space-y-8 text-text-main font-body text-lg leading-relaxed"
           >
-            <h2 className="text-3xl font-heading text-primary-navy mb-6">Navigating the UAE Property Market</h2>
+            <h2 className="text-3xl font-heading text-primary-navy mb-6">
+              {t('expertise.realEstate.heading')}
+            </h2>
             <p>
-              The UAE real estate market is renowned for its scale, ambition, and complexity. Al Mansoori & Partners provides comprehensive legal support across the entire lifecycle of real estate assets, from initial acquisition and financing through development, leasing, and final disposition.
+              {t('expertise.realEstate.p1')}
             </p>
             <p>
-              We represent major developers, institutional investors, high-net-worth individuals, and corporate occupiers in their most significant real estate transactions. Our deep understanding of local laws, regulatory frameworks, and market dynamics ensures that our clients' investments are secure and their projects proceed without legal hindrance.
+              {t('expertise.realEstate.p2')}
             </p>
             
-            <h3 className="text-2xl font-heading text-primary-navy mt-10 mb-4">Our Core Services</h3>
+            <h3 className="text-2xl font-heading text-primary-navy mt-10 mb-4">
+              {t('expertise.realEstate.coreServicesTitle')}
+            </h3>
             <ul className="space-y-4 list-none">
-              {[
-                "Commercial & Residential Acquisitions",
-                "Real Estate Development & Construction",
-                "Property Financing & Mortgages",
-                "Commercial Leasing & Tenancy Disputes",
-                "Strata & Jointly Owned Property Regulations"
-              ].map((item, idx) => (
+              {services.map((item, idx) => (
                 <li key={idx} className="flex items-start">
-                  <span className="text-luxury-gold mr-3 mt-1">✦</span>
+                  <span className="text-luxury-gold me-3 mt-1">✦</span>
                   <span>{item}</span>
                 </li>
               ))}
             </ul>
             
             <p className="mt-8">
-              Our proactive approach identifies potential issues before they arise, allowing our clients to proceed with confidence in one of the world's most dynamic property markets.
+              {t('expertise.realEstate.p3')}
             </p>
           </motion.div>
 
@@ -81,12 +89,14 @@ export default function RealEstate() {
             className="lg:col-span-4"
           >
             <div className="bg-white p-8 border border-border-light shadow-soft-lg rounded-xl sticky top-28">
-              <h3 className="text-xl font-heading text-primary-navy mb-4">Need Real Estate Legal Assistance?</h3>
-              <p className="text-text-muted mb-6 text-sm">
-                Schedule a confidential consultation with our real estate law specialists to discuss your property matters.
+              <h3 className="text-xl font-heading text-primary-navy mb-4">
+                {t('expertise.realEstate.sidebarTitle')}
+              </h3>
+              <p className="text-text-muted mb-6 text-sm leading-relaxed">
+                {t('expertise.realEstate.sidebarDesc')}
               </p>
               <Button variant="gold" className="w-full" onClick={() => navigate('/book-consultation')}>
-                Book Consultation
+                {t('expertise.realEstate.sidebarBtn')}
               </Button>
             </div>
           </motion.div>
