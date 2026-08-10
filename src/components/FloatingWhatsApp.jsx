@@ -28,6 +28,10 @@ export default function FloatingWhatsApp() {
         href={whatsappUrl}
         target="_blank"
         rel="noopener noreferrer"
+        onClick={(e) => {
+          e.currentTarget.blur();
+          setIsHovered(false);
+        }}
         className="group relative flex items-center bg-[#25D366] hover:bg-[#22BE5C] text-white p-3.5 rounded-full shadow-[0_4px_16px_rgba(0,0,0,0.16)] hover:shadow-[0_6px_20px_rgba(0,0,0,0.22)] transition-all duration-300 focus:outline-none"
         aria-label={t('common.floatingWhatsApp.ariaLabel')}
       >
