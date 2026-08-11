@@ -34,13 +34,13 @@ export default function BookConsultation() {
           className="text-center max-w-3xl mx-auto mb-14"
         >
           <h2 className="text-sm md:text-base font-semibold tracking-widest text-luxury-gold uppercase mb-3 drop-shadow-sm">
-            {t('pages.consultation.badge')}
+            {t('pages.bookConsultation.badge')}
           </h2>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading text-white mb-5 drop-shadow-md">
-            {t('pages.consultation.title1')} <span className="italic text-luxury-gold">{t('pages.consultation.titleGold')}</span>
+            {t('pages.bookConsultation.title1')} <span className="italic text-luxury-gold">{t('pages.bookConsultation.titleGold')}</span>
           </h1>
           <p className="text-white/90 text-base md:text-lg font-light drop-shadow-sm max-w-2xl mx-auto leading-relaxed">
-            {t('pages.consultation.subtitle')}
+            {t('pages.bookConsultation.subtitle')}
           </p>
         </motion.div>
 
@@ -51,10 +51,10 @@ export default function BookConsultation() {
             <div className="bg-primary-navy text-white p-10 md:col-span-2 flex flex-col justify-between">
               <div>
                 <h3 className="text-2xl font-heading mb-6 text-luxury-gold">
-                  {t('pages.consultation.leftTitle')}
+                  {t('pages.bookConsultation.contactInfoTitle')}
                 </h3>
                 <p className="text-white/80 font-body mb-10 text-sm leading-relaxed">
-                  {t('pages.consultation.leftDesc')}
+                  {t('pages.bookConsultation.contactInfoDesc')}
                 </p>
                 
                 <div className="space-y-6">
@@ -64,8 +64,8 @@ export default function BookConsultation() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                     </svg>
                     <div>
-                      <p className="font-semibold text-sm">{t('pages.consultation.ourOfficeLabel')}</p>
-                      <p className="text-white/70 text-sm mt-1 whitespace-pre-line">{t('pages.consultation.officeAddress')}</p>
+                      <p className="font-semibold text-sm">{t('pages.bookConsultation.ourOfficeLabel')}</p>
+                      <p className="text-white/70 text-sm mt-1 whitespace-pre-line">{t('pages.bookConsultation.ourOfficeVal')}</p>
                     </div>
                   </div>
                   
@@ -74,8 +74,8 @@ export default function BookConsultation() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                     </svg>
                     <div>
-                      <p className="font-semibold text-sm">{t('pages.consultation.directLineLabel')}</p>
-                      <p className="text-white/70 text-sm mt-1">+971 4 000 0000 <span className="text-luxury-gold/80 text-xs ms-1">{t('pages.consultation.demoTag')}</span></p>
+                      <p className="font-semibold text-sm">{t('pages.bookConsultation.directLineLabel')}</p>
+                      <p className="text-white/70 text-sm mt-1">+971 4 000 0000 <span className="text-luxury-gold/80 text-xs ms-1">{t('pages.bookConsultation.demoTag')}</span></p>
                     </div>
                   </div>
 
@@ -84,8 +84,8 @@ export default function BookConsultation() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                     </svg>
                     <div>
-                      <p className="font-semibold text-sm">{t('pages.consultation.emailInquiryLabel')}</p>
-                      <p className="text-white/70 text-sm mt-1">{t('pages.consultation.emailAddress')} <span className="text-luxury-gold/80 text-xs ms-1">{t('pages.consultation.demoTag')}</span></p>
+                      <p className="font-semibold text-sm">{t('pages.bookConsultation.emailInquiryLabel')}</p>
+                      <p className="text-white/70 text-sm mt-1">{t('pages.bookConsultation.emailVal')} <span className="text-luxury-gold/80 text-xs ms-1">{t('pages.bookConsultation.demoTag')}</span></p>
                     </div>
                   </div>
                 </div>
@@ -107,16 +107,16 @@ export default function BookConsultation() {
                   </div>
                   <div className="space-y-2 max-w-md">
                     <h3 className="text-2xl md:text-3xl font-heading font-semibold text-primary-navy">
-                      {t('pages.consultation.successTitle')}
+                      {t('pages.bookConsultation.successTitle')}
                     </h3>
                     <p className="text-text-muted text-base leading-relaxed">
-                      {t('pages.consultation.successDesc')}
+                      {t('pages.bookConsultation.successDesc')}
                     </p>
                   </div>
 
                   <div className="pt-2 w-full max-w-md">
                     <div className="p-3.5 bg-amber-50 border border-amber-200/80 rounded-xl text-amber-900 text-xs md:text-sm flex items-center justify-center gap-2 font-body shadow-2xs">
-                      <span>{t('pages.consultation.demoNote')}</span>
+                      <span>{t('pages.bookConsultation.demoNote')}</span>
                     </div>
                   </div>
 
@@ -124,45 +124,45 @@ export default function BookConsultation() {
                     onClick={() => setSubmitted(false)}
                     className="mt-2 text-sm font-semibold text-primary-navy hover:text-luxury-gold underline underline-offset-4 transition-colors font-body"
                   >
-                    {t('pages.consultation.submitAnother')}
+                    {t('pages.bookConsultation.submitAnother')}
                   </button>
                 </motion.div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="space-y-2">
-                      <label className="text-sm font-medium text-primary-navy block text-start">{t('pages.consultation.firstNameLabel')}</label>
-                      <input required type="text" className="w-full h-12 px-4 rounded-xl border border-border-light bg-light-gray/50 focus:outline-none focus:border-luxury-gold focus:ring-1 focus:ring-luxury-gold transition-colors text-start" placeholder={t('pages.consultation.firstNamePlaceholder')} />
+                      <label className="text-sm font-medium text-primary-navy block text-start">{t('pages.bookConsultation.firstNameLabel')}</label>
+                      <input required type="text" className="w-full h-12 px-4 rounded-xl border border-border-light bg-light-gray/50 focus:outline-none focus:border-luxury-gold focus:ring-1 focus:ring-luxury-gold transition-colors text-start" placeholder={t('pages.bookConsultation.firstNamePlaceholder')} />
                     </div>
                     <div className="space-y-2">
-                      <label className="text-sm font-medium text-primary-navy block text-start">{t('pages.consultation.lastNameLabel')}</label>
-                      <input required type="text" className="w-full h-12 px-4 rounded-xl border border-border-light bg-light-gray/50 focus:outline-none focus:border-luxury-gold focus:ring-1 focus:ring-luxury-gold transition-colors text-start" placeholder={t('pages.consultation.lastNamePlaceholder')} />
+                      <label className="text-sm font-medium text-primary-navy block text-start">{t('pages.bookConsultation.lastNameLabel')}</label>
+                      <input required type="text" className="w-full h-12 px-4 rounded-xl border border-border-light bg-light-gray/50 focus:outline-none focus:border-luxury-gold focus:ring-1 focus:ring-luxury-gold transition-colors text-start" placeholder={t('pages.bookConsultation.lastNamePlaceholder')} />
                     </div>
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="space-y-2">
-                      <label className="text-sm font-medium text-primary-navy block text-start">{t('pages.consultation.emailLabel')}</label>
-                      <input required type="email" className="w-full h-12 px-4 rounded-xl border border-border-light bg-light-gray/50 focus:outline-none focus:border-luxury-gold focus:ring-1 focus:ring-luxury-gold transition-colors text-start" placeholder={t('pages.consultation.emailPlaceholder')} />
+                      <label className="text-sm font-medium text-primary-navy block text-start">{t('pages.bookConsultation.emailAddressLabel')}</label>
+                      <input required type="email" className="w-full h-12 px-4 rounded-xl border border-border-light bg-light-gray/50 focus:outline-none focus:border-luxury-gold focus:ring-1 focus:ring-luxury-gold transition-colors text-start" placeholder={t('pages.bookConsultation.emailPlaceholder')} />
                     </div>
                     <div className="space-y-2">
-                      <label className="text-sm font-medium text-primary-navy block text-start">{t('pages.consultation.phoneLabel')}</label>
-                      <input type="tel" className="w-full h-12 px-4 rounded-xl border border-border-light bg-light-gray/50 focus:outline-none focus:border-luxury-gold focus:ring-1 focus:ring-luxury-gold transition-colors text-start" placeholder={t('pages.consultation.phonePlaceholder')} />
+                      <label className="text-sm font-medium text-primary-navy block text-start">{t('pages.bookConsultation.phoneNumberLabel')}</label>
+                      <input type="tel" className="w-full h-12 px-4 rounded-xl border border-border-light bg-light-gray/50 focus:outline-none focus:border-luxury-gold focus:ring-1 focus:ring-luxury-gold transition-colors text-start" placeholder={t('pages.bookConsultation.phonePlaceholder')} />
                     </div>
                   </div>
 
                   <div className="space-y-2">
-                    <label className="text-sm font-medium text-primary-navy block text-start">{t('pages.consultation.practiceAreaLabel')}</label>
+                    <label className="text-sm font-medium text-primary-navy block text-start">{t('pages.bookConsultation.practiceAreaLabel')}</label>
                     <div className="relative">
                       <select defaultValue="" className="w-full h-12 px-4 rounded-xl border border-border-light bg-light-gray/50 focus:outline-none focus:border-luxury-gold focus:ring-1 focus:ring-luxury-gold transition-colors appearance-none cursor-pointer text-start">
-                        <option value="" disabled>{t('pages.consultation.selectAreaPlaceholder')}</option>
-                        <option value="corporate">{t('pages.consultation.optCorporate')}</option>
-                        <option value="commercial">{t('pages.consultation.optCommercial')}</option>
-                        <option value="real-estate">{t('pages.consultation.optRealEstate')}</option>
-                        <option value="arbitration">{t('pages.consultation.optArbitration')}</option>
-                        <option value="family">{t('pages.consultation.optFamily')}</option>
-                        <option value="criminal">{t('pages.consultation.optCriminal')}</option>
-                        <option value="other">{t('pages.consultation.optOther')}</option>
+                        <option value="" disabled>{t('pages.bookConsultation.selectPracticeArea')}</option>
+                        <option value="corporate">{t('pages.bookConsultation.corporate')}</option>
+                        <option value="commercial">{t('pages.bookConsultation.commercial')}</option>
+                        <option value="real-estate">{t('pages.bookConsultation.realEstate')}</option>
+                        <option value="arbitration">{t('pages.bookConsultation.arbitration')}</option>
+                        <option value="family">{t('pages.bookConsultation.family')}</option>
+                        <option value="criminal">{t('pages.bookConsultation.criminal')}</option>
+                        <option value="other">{t('pages.bookConsultation.other')}</option>
                       </select>
                       <svg className="w-5 h-5 absolute end-4 top-1/2 -translate-y-1/2 text-text-muted pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 9l-7 7-7-7" />
@@ -171,12 +171,12 @@ export default function BookConsultation() {
                   </div>
 
                   <div className="space-y-2">
-                    <label className="text-sm font-medium text-primary-navy block text-start">{t('pages.consultation.descLabel')}</label>
-                    <textarea required rows={4} className="w-full p-4 rounded-xl border border-border-light bg-light-gray/50 focus:outline-none focus:border-luxury-gold focus:ring-1 focus:ring-luxury-gold transition-colors resize-none text-start" placeholder={t('pages.consultation.descPlaceholder')}></textarea>
+                    <label className="text-sm font-medium text-primary-navy block text-start">{t('pages.bookConsultation.descLabel')}</label>
+                    <textarea required rows={4} className="w-full p-4 rounded-xl border border-border-light bg-light-gray/50 focus:outline-none focus:border-luxury-gold focus:ring-1 focus:ring-luxury-gold transition-colors resize-none text-start" placeholder={t('pages.bookConsultation.descPlaceholder')}></textarea>
                   </div>
 
                   <Button variant="gold" className="w-full md:w-auto" type="submit">
-                    {t('pages.consultation.requestBtn')}
+                    {t('pages.bookConsultation.requestBtn')}
                   </Button>
                 </form>
               )}

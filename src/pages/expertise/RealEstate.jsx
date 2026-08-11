@@ -18,11 +18,11 @@ export default function RealEstate() {
   };
 
   const services = [
-    t('expertise.realEstate.service1'),
-    t('expertise.realEstate.service2'),
-    t('expertise.realEstate.service3'),
-    t('expertise.realEstate.service4'),
-    t('expertise.realEstate.service5')
+    t('expertise.realEstate.services.0'),
+    t('expertise.realEstate.services.1'),
+    t('expertise.realEstate.services.2'),
+    t('expertise.realEstate.services.3'),
+    t('expertise.realEstate.services.4')
   ];
 
   return (
@@ -38,13 +38,13 @@ export default function RealEstate() {
             initial="hidden" animate="visible" variants={fadeUp}
             className="text-4xl md:text-5xl lg:text-6xl font-heading text-white mb-4"
           >
-            {t('expertise.realEstate.title')} <span className="text-luxury-gold italic">{t('expertise.realEstate.titleGold')}</span>
+            {t('expertise.realEstate.heroTitle')} <span className="text-luxury-gold italic">{t('expertise.realEstate.heroTitleGold')}</span>
           </motion.h1>
           <motion.p 
             initial="hidden" animate="visible" variants={fadeUp} transition={{ delay: 0.2 }}
             className="text-lg md:text-xl text-white/80 font-light leading-relaxed"
           >
-            {t('expertise.realEstate.subtitle')}
+            {t('expertise.realEstate.heroSubtitle')}
           </motion.p>
         </div>
       </section>
@@ -57,7 +57,7 @@ export default function RealEstate() {
             className="lg:col-span-8 space-y-8 text-text-main font-body text-lg leading-relaxed"
           >
             <h2 className="text-3xl font-heading text-primary-navy mb-6">
-              {t('expertise.realEstate.heading')}
+              {t('expertise.realEstate.mainHeading')}
             </h2>
             <p>
               {t('expertise.realEstate.p1')}
@@ -67,7 +67,7 @@ export default function RealEstate() {
             </p>
             
             <h3 className="text-2xl font-heading text-primary-navy mt-10 mb-4">
-              {t('expertise.realEstate.coreServicesTitle')}
+              {t('expertise.realEstate.coreServicesHeading')}
             </h3>
             <ul className="space-y-4 list-none">
               {services.map((item, idx) => (
@@ -96,7 +96,7 @@ export default function RealEstate() {
                 {t('expertise.realEstate.sidebarDesc')}
               </p>
               <Button variant="gold" className="w-full" onClick={() => navigate('/book-consultation')}>
-                {t('expertise.realEstate.sidebarBtn')}
+                {t('expertise.realEstate.bookConsultation')}
               </Button>
             </div>
           </motion.div>

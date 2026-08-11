@@ -18,11 +18,11 @@ export default function Arbitration() {
   };
 
   const services = [
-    t('expertise.arbitration.service1'),
-    t('expertise.arbitration.service2'),
-    t('expertise.arbitration.service3'),
-    t('expertise.arbitration.service4'),
-    t('expertise.arbitration.service5')
+    t('expertise.arbitration.services.0'),
+    t('expertise.arbitration.services.1'),
+    t('expertise.arbitration.services.2'),
+    t('expertise.arbitration.services.3'),
+    t('expertise.arbitration.services.4')
   ];
 
   return (
@@ -38,13 +38,13 @@ export default function Arbitration() {
             initial="hidden" animate="visible" variants={fadeUp}
             className="text-4xl md:text-5xl lg:text-6xl font-heading text-white mb-4"
           >
-            {t('expertise.arbitration.title')} <span className="text-luxury-gold italic">{t('expertise.arbitration.titleGold')}</span>
+            {t('expertise.arbitration.heroTitle')} <span className="text-luxury-gold italic">{t('expertise.arbitration.heroTitleGold')}</span>
           </motion.h1>
           <motion.p 
             initial="hidden" animate="visible" variants={fadeUp} transition={{ delay: 0.2 }}
             className="text-lg md:text-xl text-white/80 font-light leading-relaxed"
           >
-            {t('expertise.arbitration.subtitle')}
+            {t('expertise.arbitration.heroSubtitle')}
           </motion.p>
         </div>
       </section>
@@ -57,7 +57,7 @@ export default function Arbitration() {
             className="lg:col-span-8 space-y-8 text-text-main font-body text-lg leading-relaxed"
           >
             <h2 className="text-3xl font-heading text-primary-navy mb-6">
-              {t('expertise.arbitration.heading')}
+              {t('expertise.arbitration.mainHeading')}
             </h2>
             <p>
               {t('expertise.arbitration.p1')}
@@ -67,7 +67,7 @@ export default function Arbitration() {
             </p>
             
             <h3 className="text-2xl font-heading text-primary-navy mt-10 mb-4">
-              {t('expertise.arbitration.coreServicesTitle')}
+              {t('expertise.arbitration.coreServicesHeading')}
             </h3>
             <ul className="space-y-4 list-none">
               {services.map((item, idx) => (
@@ -96,7 +96,7 @@ export default function Arbitration() {
                 {t('expertise.arbitration.sidebarDesc')}
               </p>
               <Button variant="gold" className="w-full" onClick={() => navigate('/book-consultation')}>
-                {t('expertise.arbitration.sidebarBtn')}
+                {t('expertise.arbitration.bookConsultation')}
               </Button>
             </div>
           </motion.div>

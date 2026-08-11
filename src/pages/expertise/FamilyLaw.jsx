@@ -18,11 +18,11 @@ export default function FamilyLaw() {
   };
 
   const services = [
-    t('expertise.familyLaw.service1'),
-    t('expertise.familyLaw.service2'),
-    t('expertise.familyLaw.service3'),
-    t('expertise.familyLaw.service4'),
-    t('expertise.familyLaw.service5')
+    t('expertise.family.services.0'),
+    t('expertise.family.services.1'),
+    t('expertise.family.services.2'),
+    t('expertise.family.services.3'),
+    t('expertise.family.services.4')
   ];
 
   return (
@@ -38,13 +38,13 @@ export default function FamilyLaw() {
             initial="hidden" animate="visible" variants={fadeUp}
             className="text-4xl md:text-5xl lg:text-6xl font-heading text-white mb-4"
           >
-            {t('expertise.familyLaw.title')} <span className="text-luxury-gold italic">{t('expertise.familyLaw.titleGold')}</span>
+            {t('expertise.family.heroTitle')} <span className="text-luxury-gold italic">{t('expertise.family.heroTitleGold')}</span>
           </motion.h1>
           <motion.p 
             initial="hidden" animate="visible" variants={fadeUp} transition={{ delay: 0.2 }}
             className="text-lg md:text-xl text-white/80 font-light leading-relaxed"
           >
-            {t('expertise.familyLaw.subtitle')}
+            {t('expertise.family.heroSubtitle')}
           </motion.p>
         </div>
       </section>
@@ -57,17 +57,17 @@ export default function FamilyLaw() {
             className="lg:col-span-8 space-y-8 text-text-main font-body text-lg leading-relaxed"
           >
             <h2 className="text-3xl font-heading text-primary-navy mb-6">
-              {t('expertise.familyLaw.heading')}
+              {t('expertise.family.mainHeading')}
             </h2>
             <p>
-              {t('expertise.familyLaw.p1')}
+              {t('expertise.family.p1')}
             </p>
             <p>
-              {t('expertise.familyLaw.p2')}
+              {t('expertise.family.p2')}
             </p>
             
             <h3 className="text-2xl font-heading text-primary-navy mt-10 mb-4">
-              {t('expertise.familyLaw.coreServicesTitle')}
+              {t('expertise.family.coreServicesHeading')}
             </h3>
             <ul className="space-y-4 list-none">
               {services.map((item, idx) => (
@@ -79,7 +79,7 @@ export default function FamilyLaw() {
             </ul>
             
             <p className="mt-8">
-              {t('expertise.familyLaw.p3')}
+              {t('expertise.family.p3')}
             </p>
           </motion.div>
 
@@ -90,13 +90,13 @@ export default function FamilyLaw() {
           >
             <div className="bg-white p-8 border border-border-light shadow-soft-lg rounded-xl sticky top-28">
               <h3 className="text-xl font-heading text-primary-navy mb-4">
-                {t('expertise.familyLaw.sidebarTitle')}
+                {t('expertise.family.sidebarTitle')}
               </h3>
               <p className="text-text-muted mb-6 text-sm leading-relaxed">
-                {t('expertise.familyLaw.sidebarDesc')}
+                {t('expertise.family.sidebarDesc')}
               </p>
               <Button variant="gold" className="w-full" onClick={() => navigate('/book-consultation')}>
-                {t('expertise.familyLaw.sidebarBtn')}
+                {t('expertise.family.bookConsultation')}
               </Button>
             </div>
           </motion.div>

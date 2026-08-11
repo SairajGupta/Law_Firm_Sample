@@ -18,11 +18,11 @@ export default function CommercialLaw() {
   };
 
   const services = [
-    t('expertise.commercialLaw.service1'),
-    t('expertise.commercialLaw.service2'),
-    t('expertise.commercialLaw.service3'),
-    t('expertise.commercialLaw.service4'),
-    t('expertise.commercialLaw.service5')
+    t('expertise.commercial.services.0'),
+    t('expertise.commercial.services.1'),
+    t('expertise.commercial.services.2'),
+    t('expertise.commercial.services.3'),
+    t('expertise.commercial.services.4')
   ];
 
   return (
@@ -38,13 +38,13 @@ export default function CommercialLaw() {
             initial="hidden" animate="visible" variants={fadeUp}
             className="text-4xl md:text-5xl lg:text-6xl font-heading text-white mb-4"
           >
-            {t('expertise.commercialLaw.title')} <span className="text-luxury-gold italic">{t('expertise.commercialLaw.titleGold')}</span>
+            {t('expertise.commercial.heroTitle')} <span className="text-luxury-gold italic">{t('expertise.commercial.heroTitleGold')}</span>
           </motion.h1>
           <motion.p 
             initial="hidden" animate="visible" variants={fadeUp} transition={{ delay: 0.2 }}
             className="text-lg md:text-xl text-white/80 font-light leading-relaxed"
           >
-            {t('expertise.commercialLaw.subtitle')}
+            {t('expertise.commercial.heroSubtitle')}
           </motion.p>
         </div>
       </section>
@@ -57,17 +57,17 @@ export default function CommercialLaw() {
             className="lg:col-span-8 space-y-8 text-text-main font-body text-lg leading-relaxed"
           >
             <h2 className="text-3xl font-heading text-primary-navy mb-6">
-              {t('expertise.commercialLaw.heading')}
+              {t('expertise.commercial.mainHeading')}
             </h2>
             <p>
-              {t('expertise.commercialLaw.p1')}
+              {t('expertise.commercial.p1')}
             </p>
             <p>
-              {t('expertise.commercialLaw.p2')}
+              {t('expertise.commercial.p2')}
             </p>
             
             <h3 className="text-2xl font-heading text-primary-navy mt-10 mb-4">
-              {t('expertise.commercialLaw.coreServicesTitle')}
+              {t('expertise.commercial.coreServicesHeading')}
             </h3>
             <ul className="space-y-4 list-none">
               {services.map((item, idx) => (
@@ -79,7 +79,7 @@ export default function CommercialLaw() {
             </ul>
             
             <p className="mt-8">
-              {t('expertise.commercialLaw.p3')}
+              {t('expertise.commercial.p3')}
             </p>
           </motion.div>
 
@@ -90,13 +90,13 @@ export default function CommercialLaw() {
           >
             <div className="bg-white p-8 border border-border-light shadow-soft-lg rounded-xl sticky top-28">
               <h3 className="text-xl font-heading text-primary-navy mb-4">
-                {t('expertise.commercialLaw.sidebarTitle')}
+                {t('expertise.commercial.sidebarTitle')}
               </h3>
               <p className="text-text-muted mb-6 text-sm leading-relaxed">
-                {t('expertise.commercialLaw.sidebarDesc')}
+                {t('expertise.commercial.sidebarDesc')}
               </p>
               <Button variant="gold" className="w-full" onClick={() => navigate('/book-consultation')}>
-                {t('expertise.commercialLaw.sidebarBtn')}
+                {t('expertise.commercial.bookConsultation')}
               </Button>
             </div>
           </motion.div>
